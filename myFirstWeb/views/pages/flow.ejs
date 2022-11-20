@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header.ejs') %></header>
+
+    <main>
+      <div>
+        <form action="/flow" method="post">
+          <label for="applicationGroup">Choose an Application:</label>
+          <select name="applicationGroup" id="applicationGroup">
+            <option value="A">A</option>
+            <option value="B">B</option>
+          </select>
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+
+      <div
+        id="myDiagramDiv"
+        style="width: 800px; height: 500px; background-color: #dae4e4"
+      ></div>
+
+      <script type="application/javascript">
+        var nodeData = <%- nodeData %>;
+        var linkData = <%- linkData %>;
+      </script>
+
+      <script
+        src="/public/javascript/flow.js"
+        type="application/javascript"
+      ></script>
+    </main>
+
+    <footer><%- include('../partials/footer.ejs') %></footer>
+  </body>
+</html>

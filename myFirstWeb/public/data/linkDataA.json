@@ -1,0 +1,8 @@
+[
+  { "from": 1, "to": 2 },
+  { "from": 1, "to": 3 },
+  { "from": 1, "to": 4 },
+  { "from": -1, "to": 1, "category": "Comment" },
+  { "from": -2, "to": 2, "category": "Comment" },
+  { "from": -3, "to": 3, "category": "Comment" }
+]
