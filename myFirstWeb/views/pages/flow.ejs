@@ -7,22 +7,77 @@
     <header><%- include('../partials/header.ejs') %></header>
 
     <main>
-      <div>
+      <div
+        style="position: relative; padding-top: 10px; padding-bottom: 10px"
+        class="container"
+      >
         <form action="/flow" method="post">
           <label for="applicationGroup">Choose an Application:</label>
           <select name="applicationGroup" id="applicationGroup">
-            <option value="A">A</option>
-            <option value="B">B</option>
+            <%- options %>
           </select>
           <br />
           <input type="submit" value="Submit" />
         </form>
       </div>
 
-      <div
-        id="myDiagramDiv"
-        style="width: 800px; height: 500px; background-color: #dae4e4"
-      ></div>
+      <div style="position: relative" class="container">
+        <div
+          id="myDiagramDiv"
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+          style="
+            border: 1px solid black;
+            max-width: 1600px;
+            height: 650px;
+            position: relative;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+          "
+        >
+          <canvas
+            tabindex="0"
+            width="398"
+            height="398"
+            style="
+              position: absolute;
+              top: 0px;
+              left: 0px;
+              z-index: 2;
+              user-select: none;
+              touch-action: none;
+              width: 398px;
+              height: 398px;
+            "
+            >This text is displayed if your browser does not support the Canvas
+            HTML element.</canvas
+          >
+          <div
+            style="
+              position: absolute;
+              overflow: auto;
+              width: 398px;
+              height: 398px;
+              z-index: 1;
+            "
+          >
+            <div style="position: absolute; width: 1px; height: 1px"></div>
+          </div>
+        </div>
+        <div style="margin-top: 10px">
+          <input
+            type="search"
+            id="mySearch"
+            onkeypress="if (event.keyCode === 13) searchDiagram()"
+          />
+          <button onclick="searchDiagram()">Search</button>
+        </div>
+
+        <div id="searchResult"></div>
+
+        <ul id="contextMenu" class="menu">
+          <li id="predecessor" class="menu-item">Predecessor</li>
+          <li id="successor" class="menu-item">Successor</li>
+        </ul>
+      </div>
 
       <script type="application/javascript">
         var nodeData = <%- nodeData %>;
