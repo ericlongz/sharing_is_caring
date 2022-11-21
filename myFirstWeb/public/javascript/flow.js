@@ -168,6 +168,7 @@ myDiagram.groupTemplateMap.add(
     "Auto",
     { zOrder: -1 },
     {
+      selectable: false,
       layout: $(go.TreeLayout, {
         angle: 90,
         layerSpacing: 35,
@@ -188,6 +189,7 @@ myDiagram.groupTemplateMap.add(
     go.Group,
     "Auto",
     {
+      selectable: false,
       layout: $(go.GridLayout, {
         wrappingColumn: 50,
         wrappingWidth: 999999999,

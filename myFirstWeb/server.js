@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //setting public folder to become static
-app.use(express.static(path.join(__dirname, "public")));
+app.use("/public", express.static(path.join(__dirname, "public")));
 
 //setting view engine to ejs
 app.set("views", path.join(__dirname, "views/pages"));
@@ -27,16 +27,17 @@ app.get("/", function (req, res) {
 
 //route for flow page
 app.get("/flow", function (req, res) {
-  [nodeData, linkData] = readFlowData();
+  [options, nodeData, linkData, applicationGroup] = readFlowData();
   res.render("flow", {
     title: "Flow",
     nodeData: nodeData,
     linkData: linkData,
+    applicationGroup: applicationGroup,
   });
 });
 
 app.post("/flow", function (req, res) {
-  [nodeData, linkData] = readFlowData(
+  [options, nodeData, linkData] = readFlowData(
     (applicationGroup = req.body.applicationGroup)
   );
   res.render("flow", {

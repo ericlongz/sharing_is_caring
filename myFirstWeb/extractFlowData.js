@@ -19,5 +19,5 @@ module.exports = (applicationGroup = `${initial}`) => {
       encoding: "utf8",
     }
   );
-  return [options, nodeData, linkData];
+  return [options, nodeData, linkData, applicationGroup];
 };
