@@ -1,9 +1,0 @@
-[
-  { "key": 1, "text": "Alpha", "color": "orange" },
-  { "key": 2, "text": "Beta", "color": "lightgreen" },
-  { "key": 3, "text": "Gamma", "color": "lightgreen" },
-  { "key": 4, "text": "Delta", "color": "pink" },
-  { "key": -1, "text": "comment\nabout Alpha", "category": "Comment" },
-  { "key": -2, "text": "comment\nabout Beta", "category": "Comment" },
-  { "key": -3, "text": "comment\nabout Gamma", "category": "Comment" }
-]

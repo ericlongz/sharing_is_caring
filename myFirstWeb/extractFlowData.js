@@ -1,5 +1,12 @@
-module.exports = (applicationGroup = "A") => {
-  const fs = require("fs");
+const fs = require("fs");
+var initial = fs.readFileSync(`public/data/initial.txt`, {
+  encoding: "utf8",
+});
+
+module.exports = (applicationGroup = `${initial}`) => {
+  var options = fs.readFileSync(`public/data/options.txt`, {
+    encoding: "utf8",
+  });
   var nodeData = fs.readFileSync(
     `public/data/nodeData${applicationGroup}.json`,
     {
@@ -12,5 +19,5 @@ module.exports = (applicationGroup = "A") => {
       encoding: "utf8",
     }
   );
-  return [nodeData, linkData];
+  return [options, nodeData, linkData];
 };
