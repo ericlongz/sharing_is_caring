@@ -35,7 +35,12 @@ myDiagram.nodeTemplate = $(
   ),
   $(
     go.TextBlock,
-    { margin: 5, editable: true },
+    {
+      margin: 5,
+      editable: true,
+      textAlign: "center",
+      font: "12px sans-serif",
+    },
     new go.Binding("text", "name")
   ),
 
