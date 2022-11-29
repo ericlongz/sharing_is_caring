@@ -319,6 +319,7 @@ function hideContextMenu() {
 function goToPosition(event) {
   try {
     var diagram = myDiagram;
+    console.log(event.target.id);
     node = diagram.findNodeForKey(event.target.id);
     myDiagram.select(node);
     // try to center the diagram at the first node that was found

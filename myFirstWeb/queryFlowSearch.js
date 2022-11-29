@@ -13,13 +13,15 @@ module.exports = async (jobName = "") => {
     // query to database's table
     const database = client.db("ericlie");
     const dbCollection = database.collection("flowJobInformation");
-    const cursor = dbCollection.find({ JOB_NAME: jobName });
+    var safe = jobName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    var regex = new RegExp(safe, "i");
+    const cursor = dbCollection.find({ JOB_NAME: regex }).sort({ JOB_NAME: 1 });
 
     // print a message if no documents were found
     if ((await cursor.count()) === 0) {
       console.log("No documents found!");
     } else {
-      //console.log(results);
+      console.log("Document(s) found!");
     }
 
     // return query to array

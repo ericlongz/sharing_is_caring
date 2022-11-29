@@ -316,10 +316,10 @@ function hideContextMenu() {
 }
 
 // A custom command, for select and highlight selected node(s).
-function goToPosition(event) {
+function goToPosition(nodeId) {
   try {
     var diagram = myDiagram;
-    node = diagram.findNodeForKey(event.target.id);
+    node = diagram.findNodeForKey(nodeId);
     myDiagram.select(node);
     // try to center the diagram at the first node that was found
     myDiagram.centerRect(node.actualBounds);
@@ -359,61 +359,4 @@ function goToPosition(event) {
   } catch (err) {
     console.log(err);
   }
-}
-
-// the Search functionality highlights all of the nodes that have at least one data property match a RegExp
-function searchDiagram() {
-  var rootSearch = document.getElementById("searchResult");
-  while (rootSearch.firstElementChild) {
-    rootSearch.removeChild(rootSearch.firstElementChild);
-  }
-  rootSearch.classList.remove("scrollableSearch");
-  // called by button
-  var input = document.getElementById("mySearch");
-  if (!input) return;
-  myDiagram.focus();
-
-  myDiagram.startTransaction("highlight search");
-  if (input.value) {
-    // search four different data properties for the string, any of which may match for success
-    // create a case insensitive RegExp from what the user typed
-    var safe = input.value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    var regex = new RegExp(safe, "i");
-    var results = myDiagram.findNodesByExample({ name: regex });
-
-    if (results.count > 0) {
-      rootSearch.classList.add("scrollableSearch");
-      var it = results.iterator;
-      var ul = document.createElement("ul");
-      ul.classList.add("searchResultMenu");
-      rootSearch.appendChild(ul);
-      while (it.next()) {
-        var li = document.createElement("li");
-        li.classList.add("searchResultItems");
-        li.setAttribute("id", it.value.vb.key);
-        li.innerText = it.value.vb.name;
-        ul.appendChild(li);
-        console.log(it.value.vb.key);
-      }
-      var menuItem = document.querySelectorAll(".searchResultItems");
-      for (var i = 0; i < menuItem.length; i++) {
-        menuItem[i].addEventListener("pointerdown", (event) =>
-          goToPosition(event)
-        );
-      }
-      //remove the value of search input
-      input.value = ``;
-    }
-  } else {
-    // empty string only clears highlighteds collection
-    myDiagram.clearHighlighteds();
-    for (let x in linksArray) {
-      linksArray[x].elt(0).stroke = "#D3D3D3";
-      linksArray[x].elt(0).strokeWidth = 2;
-      myDiagram.model.set(linksArray[x], "zOrder", linksArray[x].zOrder - 1);
-    }
-    linksArray = [];
-  }
-
-  myDiagram.commitTransaction("highlight search");
 }

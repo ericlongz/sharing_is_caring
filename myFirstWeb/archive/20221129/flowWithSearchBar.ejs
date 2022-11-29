@@ -71,11 +71,21 @@
             <div style="position: absolute; width: 1px; height: 1px"></div>
           </div>
         </div>
+        <div style="margin-top: 10px">
+          <input
+            type="search"
+            id="mySearch"
+            onkeypress="if (event.keyCode === 13) searchDiagram()"
+          />
+          <button onclick="searchDiagram()">Search</button>
+        </div>
+
+        <div id="searchResult"></div>
 
         <div style="margin-top: 10px; margin-bottom: 10px">
           <form action="/flow/search" method="post">
             <input
-              id="mySearch"
+              id="mySearch2"
               type="text"
               placeholder="Type a Job Name.."
               name="JOB_NAME"
@@ -84,14 +94,14 @@
           </form>
         </div>
 
-        <div id="searchResult">
+        <div id="searchResult2">
           <table
             id="dtHorizontalVerticalExample"
             class="table table-striped table-bordered"
             cellspacing="0"
             width="100%"
           >
-            <!-- jika data job tidak ada -->
+            <!-- alert data tidak ada -->
             <% if (results.length===0) { %>
             <thead>
               <tr>
