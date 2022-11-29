@@ -34,16 +34,40 @@ myDiagram.nodeTemplate = $(
     }).ofObject()
   ),
   $(
-    go.TextBlock,
-    {
-      margin: 5,
-      editable: true,
-      textAlign: "center",
-      font: "12px sans-serif",
-    },
-    new go.Binding("text", "name")
+    go.Panel,
+    "Horizontal",
+    $(
+      go.TextBlock,
+      "Default Text",
+      {
+        margin: new go.Margin(12, 2, 10, 8),
+        editable: true,
+        textAlign: "left",
+        font: "12px sans-serif",
+      },
+      new go.Binding("text", "name")
+    ),
+    // define the panel where the text will appear
+    $(
+      go.Panel,
+      "Table",
+      {
+        maxSize: new go.Size(150, 999),
+        margin: new go.Margin(0, 0, 0, 0),
+        defaultAlignment: go.Spot.Left,
+      },
+      $(go.RowColumnDefinition, { column: 2 })
+    ),
+    $(
+      go.Picture,
+      {
+        margin: new go.Margin(10, 5, 10, 5),
+        width: 15,
+        height: 15,
+      },
+      new go.Binding("source")
+    )
   ),
-
   {
     // a mouse-over highlights the link from selected node to other node(s):
     click: function (e, node) {
