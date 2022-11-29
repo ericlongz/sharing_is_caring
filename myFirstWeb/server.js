@@ -68,7 +68,6 @@ app.post("/flow/search", async function (req, res) {
 app.post("/flow/goTo", async function (req, res) {
   if (typeof options !== "undefined") {
     if (applicationGroup !== req.body.groupName) {
-      console.log(req.body.nodeId);
       let callGoToFunc = `<script>goToPosition("${req.body.nodeId}")</script>`;
       [options, nodeData, linkData] = await readFlowData(
         (applicationGroup = req.body.groupName)
@@ -81,7 +80,6 @@ app.post("/flow/goTo", async function (req, res) {
         callGoToFunc: callGoToFunc,
       });
     } else {
-      console.log(req.body.nodeId);
       let callGoToFunc = `<script>goToPosition("${req.body.nodeId}")</script>`;
       res.render("flow", {
         title: "Flow",
@@ -89,7 +87,6 @@ app.post("/flow/goTo", async function (req, res) {
       });
     }
   } else {
-    console.log("goto 3");
     let callGoToFunc = "";
     [options, nodeData, linkData, applicationGroup] = await readFlowData();
     res.render("flow", {

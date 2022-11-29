@@ -115,13 +115,17 @@
             <tbody>
               <% results.forEach((results, i)=> { i++ %>
               <form action="/flow/goTo" method="post">
-                <tr id="<%= i++ %>">
+                <tr id="<%- results.NODE_ID %>">
                   <td name="jobName"><%- results.JOB_NAME %></td>
                   <td name="schedTable"><%- results.SCHED_TABLE %></td>
                   <td name="application"><%- results.APPLICATION %></td>
                   <td name="groupName"><%- results.GROUP_NAME %></td>
                   <td>
-                    <input type="hidden" name="nodeId" value="351_8" />
+                    <input
+                      type="hidden"
+                      name="nodeId"
+                      value="<%- results.NODE_ID %>"
+                    />
                     <input
                       type="hidden"
                       name="groupName"

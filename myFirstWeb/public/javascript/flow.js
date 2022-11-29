@@ -275,10 +275,8 @@ function showContextMenu(obj, diagram) {
   var menuItem = document.querySelectorAll(".menu-item");
 
   for (var i = 0; i < menuItem.length; i++) {
-    menuItem[i].addEventListener(
-      "pointerdown",
-      (event) => goToPosition(event)
-      //console.log(event.target.id)
+    menuItem[i].addEventListener("pointerdown", (event) =>
+      goToPosition(event.target.id)
     );
   }
 
