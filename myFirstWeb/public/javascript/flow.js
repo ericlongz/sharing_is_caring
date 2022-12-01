@@ -14,7 +14,16 @@ const myDiagram = new go.Diagram("myDiagramDiv", {
   // enable Ctrl-Z to undo and Ctrl-Y to redo
   "undoManager.isEnabled": false,
   allowMove: false,
-  layout: $(go.GridLayout, { wrappingColumn: 2, wrappingWidth: 999999999 }),
+  layout: $(go.GridLayout, {
+    alignment: go.GridLayout.Position,
+    cellSize: new go.Size(1, 1),
+    wrappingWidth: Infinity,
+    spacing: new go.Size(0, 0),
+  }),
+  // wait until initial layout is finished
+  InitialLayoutCompleted: (e) => {
+    if (nodeId !== "") goToPosition(nodeId);
+  },
 });
 
 // define a simple Node template
@@ -37,15 +46,13 @@ myDiagram.nodeTemplate = $(
     go.Panel,
     "Horizontal",
     $(
-      go.TextBlock,
-      "Default Text",
+      go.Picture,
       {
-        margin: new go.Margin(12, 2, 10, 8),
-        editable: true,
-        textAlign: "left",
-        font: "12px sans-serif",
+        margin: new go.Margin(10, 5, 10, 5),
+        width: 20,
+        height: 20,
       },
-      new go.Binding("text", "name")
+      new go.Binding("source")
     ),
     // define the panel where the text will appear
     $(
@@ -54,18 +61,20 @@ myDiagram.nodeTemplate = $(
       {
         maxSize: new go.Size(150, 999),
         margin: new go.Margin(0, 0, 0, 0),
-        defaultAlignment: go.Spot.Left,
+        defaultAlignment: go.Spot.Right,
       },
       $(go.RowColumnDefinition, { column: 2 })
     ),
     $(
-      go.Picture,
+      go.TextBlock,
+      "Default Text",
       {
-        margin: new go.Margin(10, 5, 10, 5),
-        width: 15,
-        height: 15,
+        margin: new go.Margin(10, 8, 8, 2),
+        editable: true,
+        textAlign: "left",
+        font: "12px sans-serif",
       },
-      new go.Binding("source")
+      new go.Binding("text", "name")
     )
   ),
   {
@@ -163,7 +172,11 @@ myDiagram.linkTemplate = $(
   // the link path, a Shape
   $(go.Shape, { strokeWidth: 2, stroke: "#D3D3D3" }),
   // if we wanted an arrowhead we would also add another Shape with toArrow defined:
-  $(go.Shape, { toArrow: "Standard", stroke: null })
+  $(go.Shape, {
+    toArrow: "Standard",
+    stroke: "black",
+    fill: "black",
+  })
 );
 
 // when the user clicks on the background of the Diagram, remove all highlighting
@@ -191,6 +204,24 @@ myDiagram.contextClick = function (e) {
 myDiagram.contextMenu = myContextMenu;
 
 myDiagram.groupTemplateMap.add(
+  "GL",
+  $(
+    go.Group,
+    "Auto",
+    {
+      selectable: false,
+      layout: $(go.GridLayout, {
+        wrappingColumn: 10,
+        wrappingWidth: Infinity,
+        sorting: go.GridLayout.Ascending,
+      }),
+    },
+    $(go.Shape, { fill: "white", stroke: "white" }),
+    $(go.Placeholder, { padding: 10 })
+  )
+);
+
+myDiagram.groupTemplateMap.add(
   "TL",
   $(
     go.Group,
@@ -205,24 +236,6 @@ myDiagram.groupTemplateMap.add(
         alignment: go.TreeLayout.AlignmentCenterChildren,
         treeStyle: go.TreeLayout.StyleRootOnly,
         alternateAngle: 90,
-      }),
-    },
-    $(go.Shape, { fill: "white", stroke: "white" }),
-    $(go.Placeholder, { padding: 10 })
-  )
-);
-
-myDiagram.groupTemplateMap.add(
-  "GL",
-  $(
-    go.Group,
-    "Auto",
-    {
-      selectable: false,
-      layout: $(go.GridLayout, {
-        wrappingColumn: 50,
-        wrappingWidth: 999999999,
-        sorting: go.GridLayout.Ascending,
       }),
     },
     $(go.Shape, { fill: "white", stroke: "white" }),
@@ -299,9 +312,9 @@ function showContextMenu(obj, diagram) {
   var menuItem = document.querySelectorAll(".menu-item");
 
   for (var i = 0; i < menuItem.length; i++) {
-    menuItem[i].addEventListener("pointerdown", (event) =>
-      goToPosition(event.target.id)
-    );
+    menuItem[i].addEventListener("pointerdown", (event) => {
+      goToPosition(event.target.id);
+    });
   }
 
   var hasMenuItem = false;
@@ -342,6 +355,7 @@ function goToPosition(nodeId) {
   try {
     var diagram = myDiagram;
     node = diagram.findNodeForKey(nodeId);
+
     myDiagram.select(node);
     // try to center the diagram at the first node that was found
     myDiagram.centerRect(node.actualBounds);

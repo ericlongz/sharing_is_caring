@@ -60,6 +60,7 @@
 <option value="IDS-DEV">IDS-DEV</option>
 <option value="IDS-DEV-REGA">IDS-DEV-REGA</option>
 <option value="IDS-DEV-REGB">IDS-DEV-REGB</option>
+<option value="IDS-DEV-REGE">IDS-DEV-REGE</option>
 <option value="IDS-DEV-REGF">IDS-DEV-REGF</option>
 <option value="IDS-DEV-REGG">IDS-DEV-REGG</option>
 <option value="IDS-KAI-DEV">IDS-KAI-DEV</option>
@@ -138,6 +139,7 @@
 <option value="UATINTDJOBS">UATINTDJOBS</option>
 <option value="UATKUCYCJOBS">UATKUCYCJOBS</option>
 <option value="UATM940JOBS">UATM940JOBS</option>
+<option value="UATN2MJOBS">UATN2MJOBS</option>
 <option value="UATPBBJOBS">UATPBBJOBS</option>
 <option value="UATPNSJOBS">UATPNSJOBS</option>
 <option value="UATREGAJOBS">UATREGAJOBS</option>
@@ -149,6 +151,7 @@
 <option value="UATREGGJOBS">UATREGGJOBS</option>
 <option value="UATREGHJOBS">UATREGHJOBS</option>
 <option value="UATSDBJOBS">UATSDBJOBS</option>
+<option value="UATSKNJOBS">UATSKNJOBS</option>
 <option value="UATTHKAJOBS">UATTHKAJOBS</option>
 <option value="VideoBankingJobs">VideoBankingJobs</option>
 <option value="YDI-TEST">YDI-TEST</option>

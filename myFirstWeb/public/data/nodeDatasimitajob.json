@@ -1,1 +1,1 @@
-[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '200_89', 'group': 'TL', 'name': 'SIMITAUAT', 'color': 'white'}, {'key': '200_88', 'group': 'TL', 'name': 'SIMITADEV', 'color': 'white'}]
+[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '200_89', 'group': 'GL', 'name': 'SIMITAUAT', 'color': 'white'}, {'key': '200_88', 'group': 'GL', 'name': 'SIMITADEV', 'color': 'white'}]

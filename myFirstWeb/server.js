@@ -31,7 +31,7 @@ app.get("/", function (req, res) {
 //route for flow page
 app.get("/flow", async function (req, res) {
   //res.send("Test");
-  callGoToFunc = "";
+  let nodeId = '""';
   [options, nodeData, linkData, applicationGroup] = await readFlowData();
   res.render("flow", {
     title: "Flow",
@@ -39,18 +39,18 @@ app.get("/flow", async function (req, res) {
     linkData: linkData,
     applicationGroup: applicationGroup,
     results: [],
-    callGoToFunc: callGoToFunc,
+    nodeId: nodeId,
   });
 });
 
 app.post("/flow/search", async function (req, res) {
-  callGoToFunc = "";
+  let nodeId = '""';
   results = await queryFlowSearch(req.body.JOB_NAME);
   if (typeof options !== "undefined") {
     res.render("flow", {
       title: "Flow",
       results: results,
-      callGoToFunc: callGoToFunc,
+      nodeId: nodeId,
     });
   } else {
     [options, nodeData, linkData, applicationGroup] = await readFlowData();
@@ -60,7 +60,7 @@ app.post("/flow/search", async function (req, res) {
       linkData: linkData,
       applicationGroup: applicationGroup,
       results: results,
-      callGoToFunc: callGoToFunc,
+      nodeId: nodeId,
     });
   }
 });
@@ -68,7 +68,7 @@ app.post("/flow/search", async function (req, res) {
 app.post("/flow/goTo", async function (req, res) {
   if (typeof options !== "undefined") {
     if (applicationGroup !== req.body.groupName) {
-      let callGoToFunc = `<script>goToPosition("${req.body.nodeId}")</script>`;
+      let nodeId = `"${req.body.nodeId}"`;
       [options, nodeData, linkData] = await readFlowData(
         (applicationGroup = req.body.groupName)
       );
@@ -77,31 +77,32 @@ app.post("/flow/goTo", async function (req, res) {
         nodeData: nodeData,
         linkData: linkData,
         applicationGroup: applicationGroup,
-        callGoToFunc: callGoToFunc,
+        nodeId: nodeId,
       });
     } else {
-      let callGoToFunc = `<script>goToPosition("${req.body.nodeId}")</script>`;
+      let nodeId = `"${req.body.nodeId}"`;
       res.render("flow", {
         title: "Flow",
-        callGoToFunc: callGoToFunc,
+        nodeId: nodeId,
       });
     }
   } else {
-    let callGoToFunc = "";
+    let nodeId = '""';
     [options, nodeData, linkData, applicationGroup] = await readFlowData();
     res.render("flow", {
       title: "Flow",
+      options: options,
       nodeData: nodeData,
       linkData: linkData,
       applicationGroup: applicationGroup,
-      callGoToFunc: callGoToFunc,
+      nodeId: nodeId,
       results: [],
     });
   }
 });
 
 app.post("/flow", async function (req, res) {
-  callGoToFunc = "";
+  let nodeId = '""';
   [options, nodeData, linkData] = await readFlowData(
     (applicationGroup = req.body.applicationGroup)
   );
@@ -111,7 +112,7 @@ app.post("/flow", async function (req, res) {
     linkData: linkData,
     applicationGroup: applicationGroup,
     results: [],
-    callGoToFunc: callGoToFunc,
+    nodeId: nodeId,
   });
 });
 

@@ -1,1 +1,1 @@
-[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '352_8', 'group': 'TL', 'name': 'SETGVAR', 'color': 'white'}, {'key': '352_9', 'group': 'TL', 'name': 'SETGVAR1', 'color': 'white'}]
+[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '352_8', 'group': 'GL', 'name': 'SETGVAR', 'color': 'white'}, {'key': '352_9', 'group': 'GL', 'name': 'SETGVAR1', 'color': 'white'}]

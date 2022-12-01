@@ -1,1 +1,1 @@
-[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '88_17', 'group': 'TL', 'name': 'ACI$SAT1', 'color': 'white'}, {'key': '88_18', 'group': 'TL', 'name': 'ACI$SAT2', 'color': 'white'}]
+[{'key': 'TL', 'isGroup': 'true', 'category': 'TL'}, {'key': 'GL', 'isGroup': 'true', 'category': 'GL'}, {'key': '88_17', 'group': 'GL', 'name': 'ACI$SAT1', 'color': 'white'}, {'key': '88_18', 'group': 'GL', 'name': 'ACI$SAT2', 'color': 'white'}]

@@ -24,7 +24,7 @@
       <div style="position: relative" class="container">
         <p
           style="
-            text-align: right;
+            text-align: center;
             font-family: 'Press Start 2P';
             font-size: 25px;
           "
@@ -149,16 +149,14 @@
       <script type="application/javascript">
         var nodeData = <%- nodeData %>;
         var linkData = <%- linkData %>;
+        var nodeId = <%- nodeId %>;
       </script>
 
       <script
         src="/public/javascript/flow.js"
         type="application/javascript"
       ></script>
-
-      <%- callGoToFunc %>
     </main>
-
     <footer><%- include('../partials/footer.ejs') %></footer>
   </body>
 </html>
