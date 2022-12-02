@@ -45,14 +45,19 @@ myDiagram.nodeTemplate = $(
   $(
     go.Panel,
     "Horizontal",
+    $(go.Picture, "/public/img/script.png", {
+      margin: new go.Margin(10, 5, 10, 5),
+      width: 20,
+      height: 20,
+    }),
     $(
       go.Picture,
       {
-        margin: new go.Margin(10, 5, 10, 5),
-        width: 20,
-        height: 20,
+        margin: new go.Margin(10, 0, 10, 0),
       },
-      new go.Binding("source")
+      new go.Binding("source"),
+      new go.Binding("width", "width"),
+      new go.Binding("height", "height")
     ),
     // define the panel where the text will appear
     $(
@@ -69,7 +74,7 @@ myDiagram.nodeTemplate = $(
       go.TextBlock,
       "Default Text",
       {
-        margin: new go.Margin(10, 8, 8, 2),
+        margin: new go.Margin(10, 8, 8, 5),
         editable: true,
         textAlign: "left",
         font: "12px sans-serif",
