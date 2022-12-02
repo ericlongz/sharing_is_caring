@@ -45,7 +45,7 @@ myDiagram.nodeTemplate = $(
   $(
     go.Panel,
     "Horizontal",
-    $(go.Picture, "/public/img/script.png", {
+    $(go.Picture, "/public/img/script.webp", {
       margin: new go.Margin(10, 5, 10, 5),
       width: 20,
       height: 20,
