@@ -145,18 +145,17 @@
           <li id="successor" class="menu-item">Successor</li>
         </ul>
       </div>
-
-      <script type="application/javascript">
-        var nodeData = <%- nodeData %>;
-        var linkData = <%- linkData %>;
-        var nodeId = <%- nodeId %>;
-      </script>
-
-      <script
-        src="/public/javascript/flow.js"
-        type="application/javascript"
-      ></script>
     </main>
     <footer><%- include('../partials/footer.ejs') %></footer>
+    <script type="application/javascript">
+      var nodeData = <%- nodeData %>;
+      var linkData = <%- linkData %>;
+      var nodeId = <%- nodeId %>;
+    </script>
+
+    <script
+      src="/public/javascript/flow.js"
+      type="application/javascript"
+    ></script>
   </body>
 </html>

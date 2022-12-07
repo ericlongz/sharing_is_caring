@@ -4,11 +4,15 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const port = 3000;
 
+//import Files
 //import extractFlowData function
 const readFlowData = require("./extractFlowData.js");
 
 //import queryFlowSearch function
 const queryFlowSearch = require("./queryFlowSearch.js");
+
+//import validation function
+const validation = require("./validation.js");
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -113,6 +117,36 @@ app.post("/flow", async function (req, res) {
     applicationGroup: applicationGroup,
     results: [],
     nodeId: nodeId,
+  });
+});
+
+//route for validation page
+app.get("/validation", async function (req, res) {
+  //res.send("Test");
+  let validationResult = "start";
+  res.render("validation", {
+    title: "Validation",
+    validationResult: validationResult,
+  });
+});
+
+app.post("/validation", async function (req, res) {
+  //res.send("Test");
+  let validationResult = validation(
+    req.body.ctmLikeInJobname,
+    req.body.ctmJobName,
+    req.body.ctmLikeInGroupName,
+    req.body.ctmGroupName,
+    req.body.ctmLikeInApplication,
+    req.body.ctmApplication,
+    req.body.ctmLikeInServer,
+    req.body.ctmServer,
+    req.body.ctmLikeInUserId,
+    req.body.ctmUserId
+  );
+  res.render("validation", {
+    title: "Validation",
+    validationResult: validationResult,
   });
 });
 
