@@ -6,13 +6,13 @@ const port = 3000;
 
 //import Files
 //import extractFlowData function
-const readFlowData = require("./extractFlowData.js");
+const readFlowData = require("./utils/extractFlowData.js");
 
 //import queryFlowSearch function
-const queryFlowSearch = require("./queryFlowSearch.js");
+const queryFlowSearch = require("./utils/queryFlowSearch.js");
 
 //import validation function
-const validation = require("./validation.js");
+const validation = require("./utils/validation.js");
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -147,6 +147,14 @@ app.post("/validation", async function (req, res) {
   res.render("validation", {
     title: "Validation",
     validationResult: validationResult,
+  });
+});
+
+//route for task page
+app.get("/task", async function (req, res) {
+  //res.send("Test");
+  res.render("task", {
+    title: "Task",
   });
 });
 
