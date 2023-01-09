@@ -1,0 +1,85 @@
+body {
+	padding-top: 10px;
+}
+.task-card {
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	border-radius: 5px;
+	margin: 20px;
+	padding: 20px;
+}
+
+.task-card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.task-title {
+	font-size: 24px;
+	margin: 0;
+}
+
+.task-due-date {
+	color: grey;
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+.task-priority {
+	color: red;
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+.task-completion {
+	display: flex;
+	align-items: center;
+}
+
+.task-completion input[type="checkbox"] {
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	background-color: #ddd;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+	margin-right: 10px;
+}
+
+.task-completion input[type="checkbox"]:checked {
+	background-color: #4caf50;
+}
+
+.task-completion label {
+	font-size: 16px;
+	color: #666;
+}
+
+#planner {
+	font-family: Arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#planner td,
+#planner th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#planner tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#planner tr:hover {
+	background-color: #ddd;
+}
+
+#planner th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4caf50;
+	color: white;
+}
