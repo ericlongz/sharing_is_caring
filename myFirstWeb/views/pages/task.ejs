@@ -1,19 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include('../partials/head.ejs') %>
-</head>
-<body>
-    <header>
-        <%- include('../partials/header.ejs') %>
-    </header>
+	<head>
+		<%- include('../partials/head.ejs') %>
+		<link rel="stylesheet" type="text/css" href="/public/css/task.css" />
+	</head>
+	<body>
+		<header><%- include('../partials/header.ejs') %></header>
 
-    <main>
-        
-    </main>
+		<main>
+			<div
+				style="position: relative; padding-top: 10px; padding-bottom: 10px"
+				class="container"
+			>
+				<h1>Task Planner</h1>
+				<div class="task-card">
+					<h2 class="task-title">Finish homework</h2>
+					<p class="task-due-date">Due: Today</p>
+					<p class="task-priority">Priority: High</p>
+					<div class="task-completion">
+						<input type="checkbox" id="completion-checkbox" />
+						<label for="completion-checkbox">Completed</label>
+					</div>
+				</div>
 
-    <footer>
-        <%- include('../partials/footer.ejs') %>
-    </footer>
-</body>
+				<br />
+
+				<div id="planner">
+					<table>
+						<tr>
+							<th>Task</th>
+							<th>Due Date</th>
+						</tr>
+						<tr>
+							<td>Write report</td>
+							<td>01/15/2023</td>
+						</tr>
+						<tr>
+							<td>Attend meeting</td>
+							<td>01/20/2023</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<br />
+		</main>
+
+		<footer><%- include('../partials/footer.ejs') %></footer>
+	</body>
 </html>
