@@ -6,7 +6,7 @@ body {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
 	border-radius: 5px;
-	margin: 20px;
+	margin: 0px;
 	padding: 20px;
 }
 
@@ -15,8 +15,9 @@ body {
 }
 
 .task-title {
-	font-size: 24px;
+	font-size: 20px;
 	margin: 0;
+	border: black;
 }
 
 .task-due-date {
@@ -56,30 +57,30 @@ body {
 	color: #666;
 }
 
-#planner {
-	font-family: Arial, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 15px;
+	grid-auto-rows: minmax(150px, auto);
+	grid-auto-flow: row;
+	/* Hide the grid by default */
+	display: none;
 }
 
-#planner td,
-#planner th {
-	border: 1px solid #ddd;
-	padding: 8px;
+.grid-item {
+	background-color: rgb(255, 255, 255);
+	/* Add any other styles you need */
 }
 
-#planner tr:nth-child(even) {
-	background-color: #f2f2f2;
+@media (max-width: 600px) {
+	.grid-container {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 
-#planner tr:hover {
-	background-color: #ddd;
-}
-
-#planner th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	text-align: left;
-	background-color: #4caf50;
-	color: white;
+/* Styling for the "show/hide tasks" link */
+.task-link {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
 }

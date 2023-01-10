@@ -13,38 +13,81 @@
 				class="container"
 			>
 				<h1>Task Planner</h1>
-				<div class="task-card">
-					<h2 class="task-title">Finish homework</h2>
-					<p class="task-due-date">Due: Today</p>
-					<p class="task-priority">Priority: High</p>
-					<div class="task-completion">
-						<input type="checkbox" id="completion-checkbox" />
-						<label for="completion-checkbox">Completed</label>
-					</div>
-				</div>
 
 				<br />
-
-				<div id="planner">
-					<table>
-						<tr>
-							<th>Task</th>
-							<th>Due Date</th>
-						</tr>
-						<tr>
-							<td>Write report</td>
-							<td>01/15/2023</td>
-						</tr>
-						<tr>
-							<td>Attend meeting</td>
-							<td>01/20/2023</td>
-						</tr>
-					</table>
+				<button id="toggle-grid">Toggle Grid</button>
+				<a class="task-link" onclick="toggleVisibility()">Show/hide tasks</a>
+				<div class="grid-container">
+					<div class="grid-item">
+						<div class="task-card">
+							<h2 class="task-title">SR AAA</h2>
+							<p class="task-due-date">Due: Today</p>
+							<p class="task-priority">Priority: High</p>
+							<div class="task-completion">
+								<input type="checkbox" id="completion-checkbox" />
+								<label for="completion-checkbox">Checker</label>
+							</div>
+						</div>
+					</div>
+					<div class="grid-item">
+						<div class="task-card">
+							<h2 class="task-title">SR BBB</h2>
+							<p class="task-due-date">Due: Today</p>
+							<p class="task-priority">Priority: High</p>
+							<div class="task-completion">
+								<input type="checkbox" id="completion-checkbox" />
+								<label for="completion-checkbox">Checker</label>
+							</div>
+						</div>
+					</div>
+					<div class="grid-item">
+						<div class="task-card">
+							<h2 class="task-title">SR BBB</h2>
+							<p class="task-due-date">Due: Today</p>
+							<p class="task-priority">Priority: High</p>
+							<div class="task-completion">
+								<input type="checkbox" id="completion-checkbox" />
+								<label for="completion-checkbox">Checker</label>
+							</div>
+						</div>
+					</div>
+					<div class="grid-item">
+						<div class="task-card">
+							<h2 class="task-title">SR BBB</h2>
+							<p class="task-due-date">Due: Today</p>
+							<p class="task-priority">Priority: High</p>
+							<div class="task-completion">
+								<input type="checkbox" id="completion-checkbox" />
+								<label for="completion-checkbox">Checker</label>
+							</div>
+						</div>
+					</div>
+					<div class="grid-item">Template</div>
+					<!-- Add as many items as you need -->
 				</div>
 			</div>
+
 			<br />
 		</main>
 
 		<footer><%- include('../partials/footer.ejs') %></footer>
+
+		<script>
+			var toggleGridButton = document.querySelector("#toggle-grid");
+			var gridContainer = document.querySelector(".grid-container");
+
+			// Add click event listener to the button
+			toggleGridButton.addEventListener("click", function () {
+				// Toggle the display of the grid container
+				gridContainer.style.display =
+					gridContainer.style.display == "grid" ? "none" : "grid";
+			});
+
+			toggleVisibility = () => {
+				// Toggle the display of the grid container
+				gridContainer.style.display =
+					gridContainer.style.display == "grid" ? "none" : "grid";
+			};
+		</script>
 	</body>
 </html>
