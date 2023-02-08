@@ -175,7 +175,11 @@ myDiagram.linkTemplate = $(
   // default corner is 0
   { routing: go.Link.Normal, corner: 0, zOrder: 0, selectable: false },
   // the link path, a Shape
-  $(go.Shape, { strokeWidth: 2, stroke: "#D3D3D3" }),
+  $(
+    go.Shape,
+    { strokeWidth: 2, stroke: "#D3D3D3" },
+    new go.Binding("strokeDashArray", "linkShape")
+  ),
   // if we wanted an arrowhead we would also add another Shape with toArrow defined:
   $(go.Shape, {
     toArrow: "Standard",

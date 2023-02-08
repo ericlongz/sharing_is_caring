@@ -158,6 +158,13 @@ app.get("/task", async function (req, res) {
   });
 });
 
+//route for coming Log & Output page
+app.get("/logOutput", function (req, res) {
+  res.render("logOutput", {
+    title: "Log & Output",
+  });
+});
+
 //route for coming soon page
 app.get("/soon", function (req, res) {
   res.render("soon", {

@@ -1,0 +1,25 @@
+
+timeout 15 
+
+Waiting for 15 seconds, press a key to continue ...1413121110 9 8 7 6 5 4 3 2 1 0
+
+     Job Object statistics
+     ====================
+Total User CPU Time: 0.016 second  
+
+Total Kernel CPU Time: 0.094 second  
+
+This Period Total User CPU Time: 0.016 second  
+
+This Period Total Kernel CPU Time: 0.094 second  
+
+Total Page Fault Count: 9515 
+
+Total Processes: 4 
+
+Active Processes: 0 
+
+Total Terminated Processes: 0 
+
+Total peak job memory used: 14.905 mega bytes  
+
