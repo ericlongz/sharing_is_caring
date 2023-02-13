@@ -1,0 +1,103 @@
+Event Time            Message                                                               	Code
+
+09:12:24 15-Jan-2023  ORDERED JOB:357147; DAILY FORCED, ODATE 20230114                      	5065
+09:13:08 15-Jan-2023  CONFIRMED BY USER ericlie                                             	5405
+09:13:32 15-Jan-2023  FREED BY USER ericlie                                                 	5402
+09:13:32 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:13:43 15-Jan-2023  SUBMITTED TO dev3ctm01                                                	5105
+09:13:47 15-Jan-2023  STARTED AT 20230115091343 ON dev3ctm01                                	5101
+09:13:47 15-Jan-2023  JOB STATE CHANGED TO Executing                                        	5120
+09:14:02 15-Jan-2023  ENDED AT 20230115091402. OSCOMPSTAT 0. RUNCNT 1                       	5100
+09:14:02 15-Jan-2023  ENDED OK. NUMBER OF FAILURES SET TO 0                                 	5133
+09:14:02 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:14:03 15-Jan-2023  CONDITION SENGAJA-DISANGKUTIN     0114 DELETED                        	5210
+09:14:03 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:14:23 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:14:23 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:14:33 15-Jan-2023  SET TO OK REQUEST SUBMITTED BY USER ericlie                           	5411
+09:14:33 15-Jan-2023  JOB SET TO OK                                                         	5410
+09:14:33 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:14:42 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:14:42 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:14:56 15-Jan-2023  SUBMITTED TO dev3ctm01                                                	5105
+09:14:56 15-Jan-2023  STARTED AT 20230115091456 ON dev3ctm01                                	5101
+09:14:56 15-Jan-2023  JOB STATE CHANGED TO Executing                                        	5120
+09:15:11 15-Jan-2023  ENDED AT 20230115091511. OSCOMPSTAT 0. RUNCNT 2                       	5100
+09:15:11 15-Jan-2023  ENDED OK. NUMBER OF FAILURES SET TO 0                                 	5133
+09:15:11 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:15:12 15-Jan-2023  CONDITION SENGAJA-DISANGKUTIN     0114 DELETED                        	5210
+09:15:12 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:18:05 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:18:05 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:18:36 15-Jan-2023  HELD BY USER ericlie                                                  	5401
+09:18:50 15-Jan-2023  FREED BY USER ericlie                                                 	5402
+09:19:03 15-Jan-2023  Run Now 'Time Limits' option set ON by user ericlie                   	5412
+09:19:03 15-Jan-2023  Run Now 'In Conditions' option set ON by user ericlie                 	5412
+09:19:03 15-Jan-2023  Run Now 'Quantitative Resources' option set ON by user ericlie        	5412
+09:19:03 15-Jan-2023  Run Now 'Control Resources' option set ON by user ericlie             	5412
+09:19:03 15-Jan-2023  Run Now 'Workload and Node Restrictions' option set ON by user ericlie	5412
+09:19:03 15-Jan-2023  Run Now 'Pause' option set ON by user ericlie                         	5412
+09:19:03 15-Jan-2023  SUBMITTED TO dev3ctm01                                                	5105
+09:19:03 15-Jan-2023  STARTED AT 20230115091903 ON dev3ctm01                                	5101
+09:19:03 15-Jan-2023  JOB STATE CHANGED TO Executing                                        	5120
+09:19:04 15-Jan-2023  ENDED AT 20230115091904. OSCOMPSTAT 1. RUNCNT 3                       	5100
+09:19:04 15-Jan-2023  Message from Agent: Job completed                                     	5169
+09:19:04 15-Jan-2023  ENDED NOTOK. NUMBER OF FAILURES SET TO 1                              	5134
+09:19:04 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:19:04 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:19:19 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:19:19 15-Jan-2023  ALL RUN_NOW OPTIONS ARE RESET TO OFF                                  	5413
+09:19:19 15-Jan-2023  Job STATE CHANGED TO Wait Time Window                                 	5120
+09:19:33 15-Jan-2023  SET TO OK REQUEST SUBMITTED BY USER ericlie                           	5411
+09:19:33 15-Jan-2023  JOB SET TO OK                                                         	5410
+09:19:33 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:19:44 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:19:44 15-Jan-2023  Job STATE CHANGED TO Wait Time Window                                 	5120
+09:20:00 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:20:22 15-Jan-2023  Run Now 'Time Limits' option set ON by user ericlie                   	5412
+09:20:22 15-Jan-2023  Run Now 'In Conditions' option set ON by user ericlie                 	5412
+09:20:22 15-Jan-2023  Run Now 'Quantitative Resources' option set ON by user ericlie        	5412
+09:20:22 15-Jan-2023  Run Now 'Control Resources' option set ON by user ericlie             	5412
+09:20:22 15-Jan-2023  Run Now 'Workload and Node Restrictions' option set ON by user ericlie	5412
+09:20:22 15-Jan-2023  Run Now 'Pause' option set ON by user ericlie                         	5412
+09:20:22 15-Jan-2023  SUBMITTED TO dev3ctm01                                                	5105
+09:20:22 15-Jan-2023  STARTED AT 20230115092022 ON dev3ctm01                                	5101
+09:20:22 15-Jan-2023  JOB STATE CHANGED TO Executing                                        	5120
+09:20:23 15-Jan-2023  ENDED AT 20230115092023. OSCOMPSTAT 1. RUNCNT 4                       	5100
+09:20:23 15-Jan-2023  Message from Agent: Job completed                                     	5169
+09:20:23 15-Jan-2023  ENDED NOTOK. NUMBER OF FAILURES SET TO 1                              	5134
+09:20:23 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:20:24 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:34:35 15-Jan-2023  HELD BY USER ericlie                                                  	5401
+09:34:56 15-Jan-2023  FREED BY USER ericlie                                                 	5402
+09:35:08 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:35:08 15-Jan-2023  ALL RUN_NOW OPTIONS ARE RESET TO OFF                                  	5413
+09:35:08 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:35:23 15-Jan-2023  Run Now 'Time Limits' option set ON by user ericlie                   	5412
+09:35:23 15-Jan-2023  Run Now 'In Conditions' option set ON by user ericlie                 	5412
+09:35:23 15-Jan-2023  Run Now 'Quantitative Resources' option set ON by user ericlie        	5412
+09:35:23 15-Jan-2023  Run Now 'Control Resources' option set ON by user ericlie             	5412
+09:35:23 15-Jan-2023  Run Now 'Workload and Node Restrictions' option set ON by user ericlie	5412
+09:35:23 15-Jan-2023  Run Now 'Pause' option set ON by user ericlie                         	5412
+09:35:23 15-Jan-2023  DUMMY. STATUS CHANGED TO OK                                           	5164
+09:35:23 15-Jan-2023  ENDED OK. NUMBER OF FAILURES SET TO 0                                 	5133
+09:35:23 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:35:24 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
+09:37:17 15-Jan-2023  HELD BY USER ericlie                                                  	5401
+09:37:49 15-Jan-2023  FREED BY USER ericlie                                                 	5402
+09:37:57 15-Jan-2023  RERUN BY USER ericlie                                                 	5404
+09:37:57 15-Jan-2023  ALL RUN_NOW OPTIONS ARE RESET TO OFF                                  	5413
+09:37:57 15-Jan-2023  Job STATE CHANGED TO Wait Condition                                   	5120
+09:38:28 15-Jan-2023  Run Now 'Time Limits' option set ON by user ericlie                   	5412
+09:38:28 15-Jan-2023  Run Now 'In Conditions' option set ON by user ericlie                 	5412
+09:38:28 15-Jan-2023  Run Now 'Quantitative Resources' option set ON by user ericlie        	5412
+09:38:28 15-Jan-2023  Run Now 'Control Resources' option set ON by user ericlie             	5412
+09:38:28 15-Jan-2023  Run Now 'Workload and Node Restrictions' option set ON by user ericlie	5412
+09:38:28 15-Jan-2023  Run Now 'Pause' option set ON by user ericlie                         	5412
+09:38:29 15-Jan-2023  SUBMITTED TO dev3ctm01                                                	5105
+09:38:32 15-Jan-2023  STARTED AT 20230115093828 ON dev3ctm01                                	5101
+09:38:32 15-Jan-2023  JOB STATE CHANGED TO Executing                                        	5120
+09:38:48 15-Jan-2023  ENDED AT 20230115093848. OSCOMPSTAT 0. RUNCNT 6                       	5100
+09:38:48 15-Jan-2023  ENDED OK. NUMBER OF FAILURES SET TO 0                                 	5133
+09:38:48 15-Jan-2023  JOB STATE CHANGED TO Analyzed                                         	5120
+09:38:48 15-Jan-2023  Job STATE CHANGED TO Post processed                                   	5120
