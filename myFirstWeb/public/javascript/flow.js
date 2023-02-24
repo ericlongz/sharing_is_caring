@@ -405,3 +405,37 @@ function goToPosition(nodeId) {
     console.log(err);
   }
 }
+
+// Test Download svg
+// When the blob is complete, make an anchor tag for it and use the tag to initiate a download
+// Works in Chrome, Firefox, Safari, Edge, IE11
+function myCallback(blob) {
+  var url = window.URL.createObjectURL(blob);
+  var filename = "flow.svg";
+
+  var a = document.createElement("a");
+  a.style = "display: none";
+  a.href = url;
+  a.download = filename;
+
+  // IE 11
+  if (window.navigator.msSaveBlob !== undefined) {
+    window.navigator.msSaveBlob(blob, filename);
+    return;
+  }
+
+  document.body.appendChild(a);
+  requestAnimationFrame(() => {
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  });
+}
+
+function makeSvg() {
+  var svg = myDiagram.makeSvg({ scale: 1, background: "white" });
+  var svgstr = new XMLSerializer().serializeToString(svg);
+  var blob = new Blob([svgstr], { type: "image/svg+xml" });
+  myCallback(blob);
+}
+window.addEventListener("DOMContentLoaded", init);
