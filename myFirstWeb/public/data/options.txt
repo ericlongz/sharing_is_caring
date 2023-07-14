@@ -13,7 +13,6 @@
 <option value="ATM">ATM</option>
 <option value="ATM-CYC">ATM-CYC</option>
 <option value="ATM-FLAZZ-JASA-MARGA">ATM-FLAZZ-JASA-MARGA</option>
-<option value="ATM-SATELINDO">ATM-SATELINDO</option>
 <option value="ATM-TELKOM">ATM-TELKOM</option>
 <option value="ATSJobs">ATSJobs</option>
 <option value="AUTO-EPAY">AUTO-EPAY</option>
@@ -24,6 +23,7 @@
 <option value="AntasenaJobs">AntasenaJobs</option>
 <option value="AutoRecurringJobs">AutoRecurringJobs</option>
 <option value="AutomaticRatesJobs">AutomaticRatesJobs</option>
+<option value="AutorecurringJobs">AutorecurringJobs</option>
 <option value="AxeTradingJobs">AxeTradingJobs</option>
 <option value="BANK-TRADE">BANK-TRADE</option>
 <option value="BANK-TRADE-CYC">BANK-TRADE-CYC</option>
@@ -95,6 +95,7 @@
 <option value="CTM">CTM</option>
 <option value="CTSJobs">CTSJobs</option>
 <option value="CTT">CTT</option>
+<option value="CTYDBTIGERJobs">CTYDBTIGERJobs</option>
 <option value="CTYFlatJobs">CTYFlatJobs</option>
 <option value="CTYPostgreJobs">CTYPostgreJobs</option>
 <option value="CTYRestoreJobs">CTYRestoreJobs</option>
@@ -104,11 +105,11 @@
 <option value="ClientTradeJobs">ClientTradeJobs</option>
 <option value="CompJobs">CompJobs</option>
 <option value="ConfluentKafka">ConfluentKafka</option>
+<option value="ConsoleReminderJobs">ConsoleReminderJobs</option>
 <option value="DATASAURJobs">DATASAURJobs</option>
 <option value="DATAWRHS">DATAWRHS</option>
 <option value="DB-VALAS">DB-VALAS</option>
 <option value="DB2">DB2</option>
-<option value="DBBARTJobs">DBBARTJobs</option>
 <option value="DBCabangJobs">DBCabangJobs</option>
 <option value="DBORAJobs">DBORAJobs</option>
 <option value="DB_Monitor">DB_Monitor</option>
@@ -190,7 +191,6 @@
 <option value="GOAMLJobs">GOAMLJobs</option>
 <option value="GRETAJobs">GRETAJobs</option>
 <option value="GTPJobs">GTPJobs</option>
-<option value="GXM">GXM</option>
 <option value="GXM-MENU-NOINTERFACE">GXM-MENU-NOINTERFACE</option>
 <option value="GXM-MENU-OPT01">GXM-MENU-OPT01</option>
 <option value="GXM-MENU-OPT02">GXM-MENU-OPT02</option>
@@ -330,8 +330,10 @@
 <option value="LECOJobs">LECOJobs</option>
 <option value="LOUISEJobs">LOUISEJobs</option>
 <option value="MAGENTAJobs">MAGENTAJobs</option>
+<option value="MAINTENANCE">MAINTENANCE</option>
 <option value="MAINTENANCE-IDS">MAINTENANCE-IDS</option>
 <option value="MAPSJobs">MAPSJobs</option>
+<option value="MARTAJobs">MARTAJobs</option>
 <option value="MBANKJobs">MBANKJobs</option>
 <option value="MC2Jobs">MC2Jobs</option>
 <option value="MCBJobs">MCBJobs</option>
@@ -344,10 +346,10 @@
 <option value="MISJobs">MISJobs</option>
 <option value="MNLSJobs">MNLSJobs</option>
 <option value="MONTXJobs">MONTXJobs</option>
-<option value="MULTI-ATM">MULTI-ATM</option>
 <option value="MXJobs">MXJobs</option>
 <option value="MYCOREJobs">MYCOREJobs</option>
 <option value="Maintenance">Maintenance</option>
+<option value="MartisJobs">MartisJobs</option>
 <option value="MerchantBCAJobs">MerchantBCAJobs</option>
 <option value="MerhotJobs">MerhotJobs</option>
 <option value="MongoDBJobs">MongoDBJobs</option>
@@ -355,6 +357,7 @@
 <option value="MonitaJobs">MonitaJobs</option>
 <option value="MorningJobs">MorningJobs</option>
 <option value="MyBCABisnisJobs">MyBCABisnisJobs</option>
+<option value="MyBCAIndividuJobs">MyBCAIndividuJobs</option>
 <option value="MyBCAJobs">MyBCAJobs</option>
 <option value="MyPartnerJobs">MyPartnerJobs</option>
 <option value="MyServiceJobs">MyServiceJobs</option>
@@ -371,7 +374,6 @@
 <option value="NBUDB13Jobs">NBUDB13Jobs</option>
 <option value="NBUDB14Jobs">NBUDB14Jobs</option>
 <option value="NBUDB18Jobs">NBUDB18Jobs</option>
-<option value="NBUDB19Jobs">NBUDB19Jobs</option>
 <option value="NBUDB1Jobs">NBUDB1Jobs</option>
 <option value="NBUDB21Jobs">NBUDB21Jobs</option>
 <option value="NBUDB22Jobs">NBUDB22Jobs</option>
@@ -397,6 +399,8 @@
 <option value="NBUDBJobs">NBUDBJobs</option>
 <option value="NBUDBO04Jobs">NBUDBO04Jobs</option>
 <option value="NBUDBO08Jobs">NBUDBO08Jobs</option>
+<option value="NBUDBO15Jobs">NBUDBO15Jobs</option>
+<option value="NBUDBO16Jobs">NBUDBO16Jobs</option>
 <option value="NBUDBO25Jobs">NBUDBO25Jobs</option>
 <option value="NBUDBO32Jobs">NBUDBO32Jobs</option>
 <option value="NBUDBO34Jobs">NBUDBO34Jobs</option>
@@ -433,7 +437,6 @@
 <option value="NBUSQLJobs">NBUSQLJobs</option>
 <option value="NBUTandemJobs">NBUTandemJobs</option>
 <option value="NBUVMJobs">NBUVMJobs</option>
-<option value="No_Application">No_Application</option>
 <option value="OA-JOBS">OA-JOBS</option>
 <option value="OAJobs">OAJobs</option>
 <option value="OASEJobs">OASEJobs</option>
@@ -443,6 +446,7 @@
 <option value="OCSJobs">OCSJobs</option>
 <option value="ODS-IDS">ODS-IDS</option>
 <option value="OLSJobs">OLSJobs</option>
+<option value="OLTPJobs">OLTPJobs</option>
 <option value="OMIJobs">OMIJobs</option>
 <option value="OMSJobs">OMSJobs</option>
 <option value="ONLINE-ACCMASTER">ONLINE-ACCMASTER</option>
@@ -464,12 +468,13 @@
 <option value="PAVO2Jobs">PAVO2Jobs</option>
 <option value="PAVOJobs">PAVOJobs</option>
 <option value="PAYMENT">PAYMENT</option>
-<option value="PBB">PBB</option>
 <option value="PDFGenJobs">PDFGenJobs</option>
+<option value="PEGAJobs">PEGAJobs</option>
 <option value="PENAJobs">PENAJobs</option>
 <option value="PERTAMINA">PERTAMINA</option>
 <option value="PMEXP_GIJobs">PMEXP_GIJobs</option>
 <option value="PMEXP_WSAJobs">PMEXP_WSAJobs</option>
+<option value="PMSJobs">PMSJobs</option>
 <option value="PPRJobs">PPRJobs</option>
 <option value="PSAK">PSAK</option>
 <option value="PatriciaJobs">PatriciaJobs</option>
@@ -524,10 +529,12 @@
 <option value="SYSTEM-MQ">SYSTEM-MQ</option>
 <option value="SakuJobs">SakuJobs</option>
 <option value="SebiKustodianJobs">SebiKustodianJobs</option>
+<option value="ServiceATMToolsJobs">ServiceATMToolsJobs</option>
 <option value="SherlockJobs">SherlockJobs</option>
 <option value="SimarJobs">SimarJobs</option>
 <option value="SimitaJobs">SimitaJobs</option>
 <option value="SpeechTranscriptionJobs">SpeechTranscriptionJobs</option>
+<option value="SplunkJobs">SplunkJobs</option>
 <option value="StevaniJobs">StevaniJobs</option>
 <option value="SystemJobs">SystemJobs</option>
 <option value="TELLER-POOLING">TELLER-POOLING</option>
@@ -540,8 +547,6 @@
 <option value="TSM6_MAINTENANCE">TSM6_MAINTENANCE</option>
 <option value="TSMBARTJobs">TSMBARTJobs</option>
 <option value="TSMDBJobs">TSMDBJobs</option>
-<option value="TSMFlat_GIJobs">TSMFlat_GIJobs</option>
-<option value="TSMFlat_WSAJobs">TSMFlat_WSAJobs</option>
 <option value="TitusJobs">TitusJobs</option>
 <option value="TokenGatewayJobs">TokenGatewayJobs</option>
 <option value="TouchpointJobs">TouchpointJobs</option>
@@ -560,6 +565,5 @@
 <option value="XTREMJobs">XTREMJobs</option>
 <option value="YumiJobs">YumiJobs</option>
 <option value="eBranchJobs">eBranchJobs</option>
-<option value="eFLOW">eFLOW</option>
 <option value="eFLOWJobs">eFLOWJobs</option>
 <option value="eRATE_Jobs">eRATE_Jobs</option>

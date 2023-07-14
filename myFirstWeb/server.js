@@ -2,7 +2,15 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+// const passportLocalMongoose = require("passport-local-mongoose");
+const User = require("./utils/login");
 const port = 3000;
+
+mongoose.connect("mongodb://localhost/ericlie");
 
 //import Files
 //import extractFlowData function
@@ -10,6 +18,9 @@ const readFlowData = require("./utils/extractFlowData.js");
 
 //import queryFlowSearch function
 const queryFlowSearch = require("./utils/queryFlowSearch.js");
+
+//import queryDataOrderMonth function
+const queryDataOrderMonth = require("./utils/queryDataOrderMonth.js");
 
 //import validation function
 const validation = require("./utils/validation.js");
@@ -25,12 +36,99 @@ app.use("/public", express.static(path.join(__dirname, "public")));
 app.set("views", path.join(__dirname, "views/pages"));
 app.set("view engine", "ejs");
 
+app.use(
+  require("express-session")({
+    secret: "Rusty is a dog",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//=====================
+// ROUTES
+//=====================
+
 //route for index page
+// Showing home page
 app.get("/", function (req, res) {
-  res.render("index", {
-    title: "Home",
+  res.render("login", {
+    title: "Login",
   });
 });
+
+// Showing secret page
+app.get("/secret", isLoggedIn, function (req, res) {
+  res.render("secret", { title: "Secret" });
+});
+
+// Showing register form
+app.get("/register", function (req, res) {
+  res.render("register", { title: "Register" });
+});
+
+// Handling user signup
+app.post("/register", async (req, res) => {
+  try {
+    const password = await bcrypt.hash(req.body.password, 10);
+
+    const user = await User.create({
+      username: req.body.username,
+      password: password,
+    });
+
+    return res.status(200).json(user);
+  } catch (e) {
+    return res.json(e);
+  }
+});
+
+//Showing login form
+app.get("/login", function (req, res) {
+  res.render("login", { title: "Login" });
+});
+
+//Handling user login
+app.post("/login", async function (req, res) {
+  try {
+    // check if the user exists
+    const user = await User.findOne({ username: req.body.username });
+    if (user) {
+      //check if password matches
+      const result = req.body.password === user.password;
+      if (result) {
+        res.render("secret", { title: "Secret" });
+      } else {
+        res.status(400).json({ error: "password doesn't match" });
+      }
+    } else {
+      res.status(400).json({ error: "User doesn't exist" });
+    }
+  } catch (error) {
+    res.status(400).json({ error });
+  }
+});
+
+//Handling user logout
+app.get("/logout", function (req, res) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/login");
+}
 
 //route for flow page
 app.get("/flow", async function (req, res) {
@@ -163,6 +261,62 @@ app.get("/logOutput", function (req, res) {
   res.render("logOutput", {
     title: "Log & Output",
   });
+});
+
+//halaman dashboard
+
+app.get("/ordered", function (request, response) {
+  const month = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  var date = new Date();
+  // minus a day
+  date.setDate(date.getDate() - 1);
+  let bulan = month[date.getMonth()];
+  let tahun = date.getFullYear();
+  try {
+    response.render("ordered", {
+      title: "Ordered",
+      bulan: bulan,
+      tahun: tahun,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+app.post("/ordered/getDataOrderMonth", function (request, response) {
+  try {
+    var label = request.body["tahun"] + "-" + request.body["bulan"];
+    queryDataOrderMonth(label).then((results) => {
+      let labelsArr = [];
+      let devDataArr = [];
+      let prodDataArr = [];
+      let totalDataArr = [];
+      for (let i = 0; i < results.length; i++) {
+        labelsArr.push(results[i]["NET_DATE"]);
+        devDataArr.push(results[i]["SUM DEV"]);
+        prodDataArr.push(results[i]["SUM PROD"]);
+        totalDataArr.push(results[i]["TOTAL"]);
+      }
+      response
+        .status(200)
+        .send([labelsArr, devDataArr, prodDataArr, totalDataArr]);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 //route for coming soon page

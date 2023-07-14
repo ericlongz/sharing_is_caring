@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header.ejs') %></header>
+
+    <main>
+      <section class="position-relative overflow-hidden pt-5 pt-lg-3">
+        <div class="container">
+          <div class="container-fluid py-4">
+            <div class="row">
+              <!-- Job Ended OK -->
+              <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                  <div class="card-body p-3">
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="numbers">
+                          <p
+                            class="text-sm mb-0 text-uppercase font-weight-bold"
+                          >
+                            Job Ended OK
+                          </p>
+                          <h5 class="font-weight-bolder">53,000</h5>
+                          <p class="mb-0">
+                            <span
+                              class="text-success text-sm font-weight-bolder"
+                              >+55%</span
+                            >
+                            since yesterday
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-4 text-end">
+                        <div
+                          class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle"
+                        >
+                          <!-- <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Job Ended Not OK -->
+              <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                  <div class="card-body p-3">
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="numbers">
+                          <p
+                            class="text-sm mb-0 text-uppercase font-weight-bold"
+                          >
+                            Job Ended Not OK
+                          </p>
+                          <h5 class="font-weight-bolder">2,300</h5>
+                          <p class="mb-0">
+                            <span
+                              class="text-success text-sm font-weight-bolder"
+                              >+3%</span
+                            >
+                            since last week
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-4 text-end">
+                        <div
+                          class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle"
+                        >
+                          <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Job Not Run -->
+              <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+                <div class="card">
+                  <div class="card-body p-3">
+                    <div class="row">
+                      <div class="col-8">
+                        <div class="numbers">
+                          <p
+                            class="text-sm mb-0 text-uppercase font-weight-bold"
+                          >
+                            Job Not Run
+                          </p>
+                          <h5 class="font-weight-bolder">3,462</h5>
+                          <p class="mb-0">
+                            <span class="text-danger text-sm font-weight-bolder"
+                              >-2%</span
+                            >
+                            since last quarter
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-4 text-end">
+                        <div
+                          class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle"
+                        >
+                          <!-- <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Growth Monthly Job Open System -->
+            <!-- <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="card z-index-2 h-100">
+                <div class="card-header pb-0 pt-3 bg-transparent">
+                  <h6 class="text-capitalize">Growth Monthly Job Open System</h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-arrow-up text-success"></i>
+                    <span class="font-weight-bold">4% more</span> in 2022
+                  </p>
+                </div>
+                <div class="card-body p-3">
+                  <div class="chart">
+                    <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+
+            <!-- Job Terorder Bulanan -->
+            <div class="row my-4">
+              <div class="col-lg-12">
+                <div class="card shadow-xs border">
+                  <div class="card-header pb-0">
+                    <div class="d-sm-flex align-items-center mb-3">
+                      <div>
+                        <div class="dropdown btn-group">
+                          <button
+                            class="btn bg-gradient-info dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Month
+                          </button>
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton"
+                            id="dropdownOrderedMonthlyMonth"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="#">January</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">February</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">March</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">April</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">May</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">June</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">July</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">August</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">September</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">October</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">November</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">December</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="dropdown btn-group">
+                          <button
+                            class="btn bg-gradient-info dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                            Year
+                          </button>
+                          <ul
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton"
+                            id="dropdownOrderedMonthlyYear"
+                          >
+                            <li>
+                              <a class="dropdown-item" href="#">2022</a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#">2023</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <h6
+                          class="font-weight-semibold text-lg mb-0"
+                          id="headerOrderedMonthly"
+                        >
+                          Ordered Jobs <%- bulan %> <%- tahun %>
+                        </h6>
+                      </div>
+                      <div class="ms-auto d-flex"></div>
+                    </div>
+                  </div>
+                  <div class="card-body p-3">
+                    <div class="chart mt-n6">
+                      <canvas
+                        id="chart-line-bulanan"
+                        class="chart-canvas"
+                        height="225"
+                        width="696"
+                        style="
+                          display: block;
+                          box-sizing: border-box;
+                          height: 300px;
+                          width: 928px;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Job Terorder Harian Mainframe -->
+            <div class="row my-4">
+              <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+                <div class="card shadow-xs border h-100">
+                  <div class="card-header pb-0">
+                    <h6 class="font-weight-semibold text-lg mb-0">
+                      Job Terorder Mainframe
+                    </h6>
+                  </div>
+                  <div class="card-body py-3">
+                    <div class="chart mb-2">
+                      <canvas
+                        id="chart-bars-mainframe"
+                        class="chart-canvas"
+                        height="240"
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Job Terorder Harian Open System -->
+              <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+                <div class="card shadow-xs border h-100">
+                  <div class="card-header pb-0">
+                    <h6 class="font-weight-semibold text-lg mb-0">
+                      Job Terorder Open System
+                    </h6>
+                  </div>
+                  <div class="card-body py-3">
+                    <div class="chart mb-2">
+                      <canvas
+                        id="chart-bars-opensystem"
+                        class="chart-canvas"
+                        height="240"
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><%- include('../partials/footer.ejs') %></footer>
+  </body>
+</html>
+
+<!-- Where our Scripts Go -->
+<script>
+  let bulan = "<%- bulan %>";
+  let tahun = "<%- tahun %>";
+
+  function getEventTarget(e) {
+    e = e || window.event;
+    return e.target || e.srcElement;
+  }
+
+  var ul = document.getElementById("dropdownOrderedMonthlyMonth");
+  ul.onclick = function (event) {
+    var target = getEventTarget(event);
+    bulan = target.innerHTML;
+    document.getElementById("headerOrderedMonthly").innerHTML =
+      "Job Terorder" + " " + bulan + " " + tahun;
+    chartOrderBulanan.destroy();
+    createChartOrderBulanan();
+  };
+
+  var ul = document.getElementById("dropdownOrderedMonthlyYear");
+  ul.onclick = function (event) {
+    var target = getEventTarget(event);
+    tahun = target.innerHTML;
+    document.getElementById("headerOrderedMonthly").innerHTML =
+      "Job Terorder" + " " + bulan + " " + tahun;
+    chartOrderBulanan.destroy();
+    createChartOrderBulanan();
+  };
+
+  async function getDataOrderBulanan(url) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ bulan, tahun }),
+    });
+
+    let data = await response.json();
+    return data;
+  }
+</script>
+
+<!-- <script src="./javascript/chart_GrowhtMonthly.js"></script> -->
+<script src="/public/javascript/chartOrderBulanan.js"></script>
+<!-- <script src="./javascript/chartOrderHarian.js"></script> -->
