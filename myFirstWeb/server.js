@@ -9,6 +9,7 @@ const LocalStrategy = require("passport-local");
 // const passportLocalMongoose = require("passport-local-mongoose");
 const User = require("./utils/login");
 const port = 3000;
+// const cors = require("cors");
 
 mongoose.connect("mongodb://localhost/ericlie");
 
@@ -24,6 +25,27 @@ const queryDataOrderMonth = require("./utils/queryDataOrderMonth.js");
 
 //import validation function
 const validation = require("./utils/validation.js");
+
+// allow CORS
+// var allowedOrigins = [
+//   "https://ctmweb.intra.bca.co.id:8443/automation-api/session/login",
+// ];
+// app.use(
+//   cors({
+//     origin: function (origin, callback) {
+//       // allow requests with no origin
+//       // (like mobile apps or curl requests)
+//       if (!origin) return callback(null, true);
+//       if (allowedOrigins.indexOf(origin) === -1) {
+//         var msg =
+//           "The CORS policy for this site does not " +
+//           "allow access from the specified Origin.";
+//         return callback(new Error(msg), false);
+//       }
+//       return callback(null, true);
+//     },
+//   })
+// );
 
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -317,6 +339,14 @@ app.post("/ordered/getDataOrderMonth", function (request, response) {
   } catch (e) {
     console.log(e);
   }
+});
+
+//route for agent page
+app.get("/agent", async function (req, res) {
+  //res.send("Test");
+  res.render("agent", {
+    title: "Agent",
+  });
 });
 
 //route for coming soon page

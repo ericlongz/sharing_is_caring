@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "@creative-tim-official/argon-dashboard-free": "^1.2.0",
+    "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
@@ -19,6 +21,7 @@
     "mongodb": "^4.6.0",
     "mongoose": "^7.0.1",
     "node-addon-api": "^7.0.0",
+    "node-fetch": "^3.3.1",
     "node-gyp": "^9.4.0",
     "node-pre-gyp": "^0.17.0",
     "nodemon": "^2.0.20",

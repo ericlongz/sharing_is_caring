@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body>
+    <header><%- include('../partials/header.ejs') %></header>
+
+    <main>Agent</main>
+
+    <footer><%- include('../partials/footer.ejs') %></footer>
+  </body>
+</html>
+<script>
+  async function getDataAgent(url) {
+    const response = await fetch(url + "/session/login", {
+      mode: "cors",
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST,PATCH,OPTIONS",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: "ericlie", password: "eric07ad" }),
+    });
+
+    let token = await response.json();
+    console.log(token);
+    return token;
+  }
+
+  getDataAgent("https://olndctmapp01:8443/automation-api");
+</script>
+<!-- <script src="/public/javascript/agentData.js"></script> -->
