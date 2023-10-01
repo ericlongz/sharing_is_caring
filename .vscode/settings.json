@@ -1,0 +1,7 @@
+{
+    "liveServer.settings.CustomBrowser": "chrome:PrivateMode",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8"
+    },
+    "python.formatting.provider": "none"
+}
