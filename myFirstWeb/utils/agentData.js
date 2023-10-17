@@ -5,12 +5,12 @@ const httpsAgent = new https.Agent({
   rejectUnauthorized: false,
 });
 
-async function getDataAgent(url) {
+module.exports = async (url) => {
   const getTokenResponse = await axios.post(
     url + "/session/login",
     {
       username: "ericlie",
-      password: "eric07ad",
+      password: "eric08ad",
     },
     { httpsAgent, headers: { "content-type": "application/json" } }
   );
@@ -39,7 +39,7 @@ async function getDataAgent(url) {
   );
 
   return data;
-}
+};
 
 getDataAgent("https://olndctmapp01:8443/automation-api").then((data) => {
   console.log(data);

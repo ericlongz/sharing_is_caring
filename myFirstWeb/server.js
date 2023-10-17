@@ -26,6 +26,9 @@ const queryDataOrderMonth = require("./utils/queryDataOrderMonth.js");
 //import validation function
 const validation = require("./utils/validation.js");
 
+//import validation function
+const getAgentData = require("./utils/agentData.js");
+
 // allow CORS
 // var allowedOrigins = [
 //   "https://ctmweb.intra.bca.co.id:8443/automation-api/session/login",
