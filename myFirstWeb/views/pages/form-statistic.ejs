@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+
+<body>
+  <header><%- include('../partials/header.ejs') %></header>
+
+  <main>
+    <section class="pt-5">
+      <div class="container">
+        <!-- Personal info START -->
+        <div class="card card-body shadow p-4">
+          <!-- Title -->
+          <h3 class="text-center">Input Search Criteria </h3>
+          <%- include('../partials/modal.ejs') %>
+
+          <!-- Form START -->
+          <form id="formStatistic" class="row g-3 mt-0">
+            <!--Environment-->
+            <div class="form-group col-md-3">
+              <label for="ctmEnvironment">Environment <span class="text-danger">*</span></label>
+              <select class="form-select" id="ctmEnvironment" name="ctmEnvironment">
+                <option>Development</option>
+              </select>
+            </div>
+            <!--Platform-->
+            <div class="form-group col-md-3">
+              <label for="ctmPlatform">Platform<span class="text-danger">*</span></label>
+              <select class="form-select" id="ctmPlatform" name="ctmPlatform">
+                <!--<option selected>Choose...</option>-->
+                <option value=".*">All</option>
+                <option>OPEN SYSTEM</option>
+                <option>MAINFRAME</option>
+              </select>
+            </div>
+            <!--Tahun Collection-->
+            <div class="form-group col-md-3">
+              <label for="ctmTahun">Tahun<span class="text-danger">*</span></label>
+              <select class="form-select" id="ctmTahun" name="ctmTahun">
+                <%- optionsTahun %>
+              </select>
+            </div>
+            <!--Bulan Collection-->
+            <div class="form-group col-md-3">
+              <label for="ctmBulan">Bulan<span class="text-danger">*</span></label>
+              <select class="form-select" id="ctmBulan" name="ctmBulan">
+                <option value='01'>Januari</option>
+                <option value='02'>Februari</option>
+                <option value='03'>Maret</option>
+                <option value='04'>April</option>
+                <option value='05'>Mei</option>
+                <option value='06'>Juni</option>
+                <option value='07'>Juli</option>
+                <option value='08'>Agustus</option>
+                <option value='09'>September</option>
+                <option value='10'>Oktober</option>
+                <option value='11'>November</option>
+                <option value='12'>Desember</option>
+              </select>
+            </div>
+            <!--Job Name-->
+            <div class="form-group col-md-1">
+              <label for="ctmLikeInJobName" style="color: white"> - </label>
+              <select class="form-select" id="ctmLikeInJobName" name="ctmLikeInJobName">
+                <option selected value="$regex">LIKE</option>
+                <option value="$eq">=</option>
+                <!--<option>IN</option> -->
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="ctmJobName"> Job Name</label>
+              <input type="jobName" class="form-control" id="ctmJobName" placeholder="Job Name" name="ctmJobName">
+            </div>
+
+            <!--Group Name-->
+            <div class="form-group col-md-1">
+              <label for="ctmLikeInGroupName" style="color: white;">-</label>
+              <select class="form-select" id="ctmLikeInGroupName" name="ctmLikeInGroupName">
+                <option selected value="$regex">LIKE</option>
+                <option value="$eq">=</option>
+                <!--<option>IN</option> -->
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="ctmGroupName">Group Name</label>
+              <input type="groupName" class="form-control" id="ctmGroupName" placeholder="Group Name" name="ctmGroupName">
+            </div>
+            <div class="form-group col-md-1">
+              <label for="ctmLikeInServer" style="color: white;">-</label>
+              <select class="form-select" id="ctmLikeInServer" name="ctmLikeInServer">
+                <option selected value="$regex">LIKE</option>
+                <option value="$eq">=</option>
+                <!--<option>IN</option> -->
+              </select>
+            </div>
+
+            <div class="form-group col-md-5">
+              <label for="ctmServer">Server</label>
+              <input type="server" class="form-control" id="ctmServer" placeholder="Server" name="ctmServer">
+            </div>
+            <div class="form-group col-md-1">
+              <label for="ctmLikeInUserId" style="color: white;">-</label>
+              <select class="form-select" id="ctmLikeInUserId" name="ctmLikeInUserId">
+                <option selected value="$regex">LIKE</option>
+                <option value="$eq">=</option>
+                <!--<option>IN</option> -->
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="ctmUserId">User ID</label>
+              <input type="userId" class="form-control" id="ctmUserId" placeholder="User ID" name="ctmUserId">
+            </div>
+            <div class="form-group col-md-1" style="color: white;">
+              <label for="ctmLikeInTableName">-</label>
+              <select class="form-select" id="ctmLikeInTableName" name="ctmLikeInTableName">
+                <option selected value="$regex">LIKE</option>
+                <option value="$eq">=</option>
+                <!--<option>IN</option> -->
+              </select>
+            </div>
+            <div class="form-group col-md-5">
+              <label for="ctmTableName">Table Name</label>
+              <input type="tableName" class="form-control" id="ctmTableName" placeholder="Table Name" name="ctmTableName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="ctmEndedStatus">Ended Status <span class="text-danger">*</span></label>
+              <select class="form-select" id="ctmEndedStatus" name="ctmEndedStatus">
+                <option selected value=".*">All</option>
+                <option>OK</option>
+                <option>NOT OK</option>
+              </select>
+            </div>
+            <!-- Range time-->
+            <div class="form-group col-md-1">
+              <label class="form-label">From</label>
+              <label for="ctmFromOdate"></label>
+              <select class="form-select" id="ctmFromOdate" name="ctmFromOdate">
+                <option value="$gt">></option>
+                <option selected value="$eq">=</option>
+                <!--<option><</option>-->
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">Order Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromOdateDD" name="ctmFromOdateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromOdateMM" name="ctmFromOdateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromOdateYYYY" name="ctmFromOdateYYYY">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">Until</label>
+              <label for="ctmUntilOdate"></label>
+              <select class="form-select" id="ctmUntilOdate" name="ctmUntilOdate">
+                <!--<option >></option>
+                                <option selected>=</option>-->
+                <option value="$lt">
+                  <</option>
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label"> Order Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilOdateDD" name="ctmUntilOdateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilOdateMM" name="ctmUntilOdateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilOdateYYYY" name="ctmUntilOdateYYYY">
+              </div>
+            </div>
+
+            <div class="form-group col-md-1">
+              <label class="form-label">From</label>
+              <label for="ctmFromStartDate"></label>
+              <select class="form-select" id="ctmFromStartDate" name="ctmFromStartDate">
+                <option value="$gt">></option>
+                <option selected value="$eq">=</option>
+                <!--<option><</option>-->
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">Start Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromStartDateDD" name="ctmFromStartDateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromStartDateMM" name="ctmFromStartDateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromStartDateYYYY" name="ctmFromStartDateYYYY">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">Until</label>
+              <label for="ctmUntilStartDate"></label>
+              <select class="form-select" id="ctmUntilStartDate" name="ctmUntilStartDate">
+                <!--<option >></option>
+                                    <option selected>=</option>-->
+                <option value="$lt">
+                  <</option>
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label"> Start Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilStartDateDD" name="ctmUntilStartDateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilStartDateMM" name="ctmUntilStartDateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilStartDateYYYY" name="ctmUntilStartDateYYYY">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">From</label>
+              <label for="ctmFromStartTime"></label>
+              <select class="form-select" id="ctmFromStartTime" name="ctmFromStartTime">
+                <option value="$gt">></option>
+                <option selected value="$eq">=</option>
+                <!--<option><</option>-->
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">Start Time </label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmFromStartTimeHH" name="ctmFromStartTimeHH">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromStartTimeMM" name="ctmFromStartTimeMM">
+                <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmFromStartTimeSS" name="ctmFromStartTimeSS">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">Until</label>
+              <label for="ctmUntilStartTime"></label>
+              <select class="form-select" id="ctmUntilStartTime" name="ctmUntilStartTime">
+                <!--<option >></option>
+                                    <option selected>=</option>-->
+                <option value="$lt">
+                  <</option>
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label"> Start Time</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmUntilStartTimeHH" name="ctmUntilStartTimeHH">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilStartTimeMM" name="ctmUntilStartTimeMM">
+                <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmUntilStartTimeSS" name="ctmUntilStartTimeSS">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">From</label>
+              <label for="ctmFromEndDate"></label>
+              <select class="form-select" id="ctmFromEndDate" name="ctmFromEndDate">
+                <option value="$gt">></option>
+                <option selected value="$eq">=</option>
+                <!--<option><</option>-->
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">End Date </label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromEndDateDD" name="ctmFromEndDateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromEndDateMM" name="ctmFromEndDateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromEndDateYYYY" name="ctmFromEndDateYYYY">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">Until</label>
+              <label for="ctmUntilEndDate"></label>
+              <select class="form-select" id="ctmUntilEndDate" name="ctmUntilEndDate">
+                <!--<option >></option>
+                                    <option selected>=</option>-->
+                <option value="$lt">
+                  <</option>
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label"> End Date</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilEndDateDD" name="ctmUntilEndDateDD">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilEndDateMM" name="ctmUntilEndDateMM">
+                <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilEndDateYYYY" name="ctmUntilEndDateYYYY">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">From</label>
+              <label for="ctmFromEndTime"></label>
+              <select class="form-select" id="ctmFromEndTime" name="ctmFromEndTime">
+                <option value="$gt">></option>
+                <option selected value="$eq">=</option>
+                <!--<option><</option>-->
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">End Time </label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmFromEndTimeHH" name="ctmFromEndTimeHH">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromEndTimeMM" name="ctmFromEndTimeMM">
+                <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmFromEndTimeSS" name="ctmFromEndTimeSS">
+              </div>
+            </div>
+            <div class="form-group col-md-1">
+              <label class="form-label">Until</label>
+              <label for="ctmUntilEndTime"></label>
+              <select class="form-select" id="ctmUntilEndTime" name="ctmUntilEndTime">
+                <!--<option >></option>
+                                    <option selected>=</option>-->
+                <option value="$lt">
+                  <</option>
+              </select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label"> End Time</label>
+              <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmUntilEndTimeHH" name="ctmUntilEndTimeHH">
+                <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilEndTimeMM" name="ctmUntilEndTimeMM">
+                <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmUntilEndTimeSS" name="ctmUntilEndTimeSS">
+              </div>
+            </div>
+            <!-- Button -->
+            <div class="col-md-12 text-center">
+              <button type="button" class="btn btn-primary mb-0" id="ctmSubmit">Submit</button>
+            </div>
+        </div>
+        </form>
+      </div>
+      </div>
+      <script type="text/javascript" src="/public/DataTables/datatables.js"></script>
+    </section>
+    <section id="statisticTable" class="pt-5"></section>
+  </main>
+  <footer><%- include('../partials/footer.ejs') %></footer>
+
+</body>
+
+<script>
+  async function getDataStatistic(url, dataBody) {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataBody),
+    });
+
+    let data = await response.json();
+    return data;
+  }
+
+  let submitBtn = document.getElementById("ctmSubmit");
+  submitBtn.onclick = function (event) {
+    let ctmTahun = document.getElementById('ctmTahun').value
+		let ctmBulan = document.getElementById('ctmBulan').value
+    let ctmPlatform = document.getElementById('ctmPlatform').value
+    let ctmJobName = document.getElementById('ctmJobName').value
+    let ctmServer = document.getElementById('ctmServer').value
+    let ctmGroupName = document.getElementById('ctmGroupName').value
+    let ctmUserId = document.getElementById('ctmUserId').value
+    let ctmTableName = document.getElementById('ctmTableName').value
+    let ctmEndedStatus = document.getElementById('ctmEndedStatus').value
+    let ctmLikeInJobName = document.getElementById('ctmLikeInJobName').value
+    let ctmLikeInServer = document.getElementById('ctmLikeInServer').value
+    let ctmLikeInGroupName = document.getElementById('ctmLikeInGroupName').value
+    let ctmLikeInUserId = document.getElementById('ctmLikeInUserId').value
+    let ctmLikeInTableName = document.getElementById('ctmLikeInTableName').value
+    let ctmFromOdate = document.getElementById('ctmFromOdate').value
+    let ctmFromOdateYYYY = document.getElementById('ctmFromOdateYYYY').value
+    let ctmFromOdateMM = document.getElementById('ctmFromOdateMM').value
+    let ctmFromOdateDD = document.getElementById('ctmFromOdateDD').value
+    let ctmUntilOdate = document.getElementById('ctmUntilOdate').value
+    let ctmUntilOdateYYYY = document.getElementById('ctmUntilOdateYYYY').value
+    let ctmUntilOdateMM = document.getElementById('ctmUntilOdateMM').value
+    let ctmUntilOdateDD = document.getElementById('ctmUntilOdateDD').value
+    let ctmFromStartDate = document.getElementById('ctmFromStartDate').value
+    let ctmFromStartDateYYYY = document.getElementById('ctmFromStartDateYYYY').value
+    let ctmFromStartDateMM = document.getElementById('ctmFromStartDateMM').value
+    let ctmFromStartDateDD = document.getElementById('ctmFromStartDateDD').value
+    let ctmUntilStartDate = document.getElementById('ctmUntilStartDate').value
+    let ctmUntilStartDateYYYY = document.getElementById('ctmUntilStartDateYYYY').value
+    let ctmUntilStartDateMM = document.getElementById('ctmUntilStartDateMM').value
+    let ctmUntilStartDateDD = document.getElementById('ctmUntilStartDateDD').value
+    let ctmFromStartTime = document.getElementById('ctmFromStartTime').value
+    let ctmFromStartTimeHH = document.getElementById('ctmFromStartTimeHH').value
+    let ctmFromStartTimeMM = document.getElementById('ctmFromStartTimeMM').value
+    let ctmFromStartTimeSS = document.getElementById('ctmFromStartTimeSS').value
+    let ctmUntilStartTime = document.getElementById('ctmUntilStartTime').value
+    let ctmUntilStartTimeHH = document.getElementById('ctmUntilStartTimeHH').value
+    let ctmUntilStartTimeMM = document.getElementById('ctmUntilStartTimeMM').value
+    let ctmUntilStartTimeSS = document.getElementById('ctmUntilStartTimeSS').value
+    let ctmFromEndDate = document.getElementById('ctmFromEndDate').value
+    let ctmFromEndDateYYYY = document.getElementById('ctmFromEndDateYYYY').value
+    let ctmFromEndDateMM = document.getElementById('ctmFromEndDateMM').value
+    let ctmFromEndDateDD = document.getElementById('ctmFromEndDateDD').value
+    let ctmUntilEndDate = document.getElementById('ctmUntilEndDate').value
+    let ctmUntilEndDateYYYY = document.getElementById('ctmUntilEndDateYYYY').value
+    let ctmUntilEndDateMM = document.getElementById('ctmUntilEndDateMM').value
+    let ctmUntilEndDateDD = document.getElementById('ctmUntilEndDateDD').value
+    let ctmFromEndTime = document.getElementById('ctmFromEndTime').value
+    let ctmFromEndTimeHH = document.getElementById('ctmFromEndTimeHH').value
+    let ctmFromEndTimeMM = document.getElementById('ctmFromEndTimeMM').value
+    let ctmFromEndTimeSS = document.getElementById('ctmFromEndTimeSS').value
+    let ctmUntilEndTime = document.getElementById('ctmUntilEndTime').value
+    let ctmUntilEndTimeHH = document.getElementById('ctmUntilEndTimeHH').value
+    let ctmUntilEndTimeMM = document.getElementById('ctmUntilEndTimeMM').value
+    let ctmUntilEndTimeSS = document.getElementById('ctmUntilEndTimeSS').value
+    getDataStatistic("http://localhost:3000/statistic/getDataStatistic", { ctmTahun, ctmBulan, ctmPlatform, ctmJobName, ctmServer, ctmGroupName, ctmUserId, ctmTableName, ctmEndedStatus, ctmLikeInJobName, ctmLikeInServer, ctmLikeInGroupName, ctmLikeInUserId, ctmLikeInTableName, ctmFromOdate, ctmFromOdateYYYY, ctmFromOdateMM, ctmFromOdateDD, ctmUntilOdate, ctmUntilOdateYYYY, ctmUntilOdateMM, ctmUntilOdateDD, ctmFromStartDate, ctmFromStartDateYYYY, ctmFromStartDateMM, ctmFromStartDateDD, ctmUntilStartDate, ctmUntilStartDateYYYY, ctmUntilStartDateMM, ctmUntilStartDateDD, ctmFromStartTime, ctmFromStartTimeHH, ctmFromStartTimeMM, ctmFromStartTimeSS, ctmUntilStartTime, ctmUntilStartTimeHH, ctmUntilStartTimeMM, ctmUntilStartTimeSS, ctmFromEndDate, ctmFromEndDateYYYY, ctmFromEndDateMM, ctmFromEndDateDD, ctmUntilEndDate, ctmUntilEndDateYYYY, ctmUntilEndDateMM, ctmUntilEndDateDD, ctmFromEndTime, ctmFromEndTimeHH, ctmFromEndTimeMM, ctmFromEndTimeSS, ctmUntilEndTime, ctmUntilEndTimeHH, ctmUntilEndTimeMM, ctmUntilEndTimeSS }).then((data) => {})
+
+    myFunction()
+  };
+
+  function myFunction() {//  w  w  w .j a  v  a  2 s.c  o  m
+
+    let statistics = []
+    console.log(statistics.length)
+
+    document.getElementById('statisticTable').innerHTML = "";
+
+    let tableDivOne = document.createElement("div");
+    tableDivOne.setAttribute("class", "container");
+    document.getElementById('statisticTable').appendChild(tableDivOne);
+
+    let tableDivTwo = document.createElement("div");
+    tableDivTwo.setAttribute("class", "col-xl-12 mb-4 mb-sm-4");
+    tableDivOne.appendChild(tableDivTwo);
+
+    let tableDivThree = document.createElement("div");
+    tableDivThree.setAttribute("class", "card card-body shadow p-4");
+    tableDivTwo.appendChild(tableDivThree);
+
+    let tableTrWarning = document.createElement("TR");
+    tableDivThree.appendChild(tableTrWarning);
+
+    let tableTdWarning = document.createElement("TD");
+    tableTdWarning.setAttribute("colspan", "8");
+    tableTrWarning.appendChild(tableTdWarning);
+
+    let tableDivWarning = document.createElement("div");
+    tableDivWarning.setAttribute("class", "alert alert-warning fw-bold");
+    tableDivWarning.setAttribute("role", "alert");
+    tableDivWarning.innerHTML = "Jumlah data yang ditampilkan sebanyak 10.000 line."
+    tableTrWarning.appendChild(tableDivWarning);
+
+    var tableTitle = document.createElement("h3");
+    tableTitle.setAttribute("class", "text-center");
+    tableTitle.innerHTML = "Summary"
+    tableDivThree.appendChild(tableTitle);
+}
+  
+</script>
+</html>
