@@ -1,0 +1,180 @@
+{
+        $and: [
+          {
+            DATA_CENTER: {
+              $regex: '.*',
+            },
+          },
+          {
+            JOB_MEM_NAME: {
+              $eq: '.*',
+            },
+          },
+          {
+            NODE_ID: {
+              $regex: '.*',
+            },
+          },
+          {
+            GROUP_NAME: {
+              $regex: '.*',
+            },
+          },
+          {
+            OWNER: {
+              $regex: '.*',
+            },
+          },
+          {
+            SCHED_TABLE: {
+              $regex: '.*',
+            },
+          },
+          {
+            ENDED_STATUS: {
+              $regex: '.*',
+            },
+          },
+          {
+            ORDER_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            ORDER_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            START_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            START_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            START_TIME: {
+              $regex: '.*',
+            },
+          },
+          {
+            START_TIME: {
+              $regex: '.*',
+            },
+          },
+          {
+            END_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            END_DATE: {
+              $regex: '.*',
+            },
+          },
+          {
+            END_TIME: {
+              $regex: '.*',
+            },
+          },
+          {
+            END_TIME: {
+              $regex: '.*',
+            },
+          },
+        ],
+      }
+
+let stringTest = `{
+        $and: [
+          {
+            DATA_CENTER: {
+              $regex: ${ctmPlatform},
+            },
+          },
+          {
+            JOB_MEM_NAME: {
+              [${ctmLikeInJobName}]: ${ctmJobName},
+            }, //incaseCtmJobName
+          },
+          {
+            NODE_ID: {
+              [${ctmLikeInServer}]: ${ctmServer},
+            },
+          },
+          {
+            GROUP_NAME: {
+              [${ctmLikeInGroupName}]: ${ctmGroupName},
+            },
+          },
+          {
+            OWNER: {
+              [${ctmLikeInUserId}]: ${ctmUserId},
+            },
+          },
+          {
+            SCHED_TABLE: {
+              [${ctmLikeInTableName}]: ${ctmTableName},
+            },
+          },
+          {
+            ENDED_STATUS: {
+              [${ctmLikeInEndedStatus}]: ${ctmEndedStatus},
+            },
+          },
+          {
+            ORDER_DATE: {
+              [${ctmFromOdate}]: ${ctmFromOdateYDM},
+            },
+          },
+          {
+            ORDER_DATE: {
+              [${ctmUntilOdate}]: ${ctmUntilOdateYDM},
+            },
+          },
+          {
+            START_DATE: {
+              [${ctmFromStartDate}]: ${ctmFromStartDateYDM},
+            },
+          },
+          {
+            START_DATE: {
+              [${ctmUntilStartDate}]: ${ctmUntilStartDateYDM},
+            },
+          },
+          {
+            START_TIME: {
+              [${ctmFromStartTime}]: ${ctmFromStartTimeHMS},
+            },
+          },
+          {
+            START_TIME: {
+              [${ctmUntilStartTime}]: ${ctmUntilStartTimeHMS},
+            },
+          },
+          {
+            END_DATE: {
+              [${ctmFromEndDate}]: ${ctmFromEndDateYDM},
+            },
+          },
+          {
+            END_DATE: {
+              [${ctmUntilEndDate}]: ${ctmUntilEndDateYDM},
+            },
+          },
+          {
+            END_TIME: {
+              [${ctmFromEndTime}]: ${ctmFromEndTimeHMS},
+            },
+          },
+          {
+            END_TIME: {
+              [${ctmUntilEndTime}]: ${ctmUntilEndTimeHMS},
+            },
+          },
+        ],
+      }`;
+			console.log(stringTest);

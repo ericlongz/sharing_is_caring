@@ -314,7 +314,7 @@ app.post('/statistic/getDataStatistic', async function (request, response) {
 			request.body.ctmTableName
 		);
 		console.log(validationResult);
-		console.log(request.body);
+		// console.log(request.body);
 		if (validationResult === true) {
 			statistics = await queryStatistic.queryJobStatistic(
 				MongoClient,
@@ -384,13 +384,10 @@ app.post('/statistic/getDataStatistic', async function (request, response) {
 				request.body.ctmUntilEndTimeMM,
 				request.body.ctmUntilEndTimeSS
 			);
-			// console.log(request.body);
-			// console.log(statistics);
 		} else {
 			statistics = [];
 		}
-		// console.log(request.body);
-		// console.log(statistics);
+		console.log(statistics);
 	} catch (e) {
 		console.log(e);
 	}
