@@ -387,6 +387,7 @@ app.post('/statistic/getDataStatistic', async function (request, response) {
 		} else {
 			statistics = [];
 		}
+		response.status(200).send(statistics);
 		console.log(statistics);
 	} catch (e) {
 		console.log(e);
