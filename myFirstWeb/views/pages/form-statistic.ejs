@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <%- include('../partials/head.ejs') %>
 </head>
@@ -157,7 +158,7 @@
                 <!--<option >></option>
                                 <option selected>=</option>-->
                 <option value="$lt">
-                  <</option>
+                  << /option>
               </select>
             </div>
             <div class="col-md-5">
@@ -193,7 +194,7 @@
                 <!--<option >></option>
                                     <option selected>=</option>-->
                 <option value="$lt">
-                  <</option>
+                  << /option>
               </select>
             </div>
             <div class="col-md-5">
@@ -228,7 +229,7 @@
                 <!--<option >></option>
                                     <option selected>=</option>-->
                 <option value="$lt">
-                  <</option>
+                  << /option>
               </select>
             </div>
             <div class="col-md-5">
@@ -263,7 +264,7 @@
                 <!--<option >></option>
                                     <option selected>=</option>-->
                 <option value="$lt">
-                  <</option>
+                  << /option>
               </select>
             </div>
             <div class="col-md-5">
@@ -298,7 +299,7 @@
                 <!--<option >></option>
                                     <option selected>=</option>-->
                 <option value="$lt">
-                  <</option>
+                  << /option>
               </select>
             </div>
             <div class="col-md-5">
@@ -318,7 +319,12 @@
       </div>
       <script type="text/javascript" src="/public/DataTables/datatables.js"></script>
     </section>
-    <section id="statisticTable" class="pt-5"></section>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+    <section style="display:none" id="statisticTable" class="pt-5"></section>
   </main>
   <footer><%- include('../partials/footer.ejs') %></footer>
 
@@ -339,9 +345,13 @@
   }
 
   let submitBtn = document.getElementById("ctmSubmit");
-  submitBtn.onclick = function (event) {
+  submitBtn.onclick = function(event) {
+
+    document.getElementById('statisticTable').innerHTML = "";
+    document.getElementById("loadingAnimation").id = "loader";
+
     let ctmTahun = document.getElementById('ctmTahun').value
-		let ctmBulan = document.getElementById('ctmBulan').value
+    let ctmBulan = document.getElementById('ctmBulan').value
     let ctmPlatform = document.getElementById('ctmPlatform').value
     let ctmJobName = document.getElementById('ctmJobName').value
     let ctmServer = document.getElementById('ctmServer').value
@@ -394,15 +404,68 @@
     let ctmUntilEndTimeHH = document.getElementById('ctmUntilEndTimeHH').value
     let ctmUntilEndTimeMM = document.getElementById('ctmUntilEndTimeMM').value
     let ctmUntilEndTimeSS = document.getElementById('ctmUntilEndTimeSS').value
-    getDataStatistic("http://localhost:3000/statistic/getDataStatistic", { ctmTahun, ctmBulan, ctmPlatform, ctmJobName, ctmServer, ctmGroupName, ctmUserId, ctmTableName, ctmEndedStatus, ctmLikeInJobName, ctmLikeInServer, ctmLikeInGroupName, ctmLikeInUserId, ctmLikeInTableName, ctmFromOdate, ctmFromOdateYYYY, ctmFromOdateMM, ctmFromOdateDD, ctmUntilOdate, ctmUntilOdateYYYY, ctmUntilOdateMM, ctmUntilOdateDD, ctmFromStartDate, ctmFromStartDateYYYY, ctmFromStartDateMM, ctmFromStartDateDD, ctmUntilStartDate, ctmUntilStartDateYYYY, ctmUntilStartDateMM, ctmUntilStartDateDD, ctmFromStartTime, ctmFromStartTimeHH, ctmFromStartTimeMM, ctmFromStartTimeSS, ctmUntilStartTime, ctmUntilStartTimeHH, ctmUntilStartTimeMM, ctmUntilStartTimeSS, ctmFromEndDate, ctmFromEndDateYYYY, ctmFromEndDateMM, ctmFromEndDateDD, ctmUntilEndDate, ctmUntilEndDateYYYY, ctmUntilEndDateMM, ctmUntilEndDateDD, ctmFromEndTime, ctmFromEndTimeHH, ctmFromEndTimeMM, ctmFromEndTimeSS, ctmUntilEndTime, ctmUntilEndTimeHH, ctmUntilEndTimeMM, ctmUntilEndTimeSS }).then((data) => {
-    myFunction(data);
-  })
+    getDataStatistic("http://localhost:3000/statistic/getDataStatistic", {
+      ctmTahun,
+      ctmBulan,
+      ctmPlatform,
+      ctmJobName,
+      ctmServer,
+      ctmGroupName,
+      ctmUserId,
+      ctmTableName,
+      ctmEndedStatus,
+      ctmLikeInJobName,
+      ctmLikeInServer,
+      ctmLikeInGroupName,
+      ctmLikeInUserId,
+      ctmLikeInTableName,
+      ctmFromOdate,
+      ctmFromOdateYYYY,
+      ctmFromOdateMM,
+      ctmFromOdateDD,
+      ctmUntilOdate,
+      ctmUntilOdateYYYY,
+      ctmUntilOdateMM,
+      ctmUntilOdateDD,
+      ctmFromStartDate,
+      ctmFromStartDateYYYY,
+      ctmFromStartDateMM,
+      ctmFromStartDateDD,
+      ctmUntilStartDate,
+      ctmUntilStartDateYYYY,
+      ctmUntilStartDateMM,
+      ctmUntilStartDateDD,
+      ctmFromStartTime,
+      ctmFromStartTimeHH,
+      ctmFromStartTimeMM,
+      ctmFromStartTimeSS,
+      ctmUntilStartTime,
+      ctmUntilStartTimeHH,
+      ctmUntilStartTimeMM,
+      ctmUntilStartTimeSS,
+      ctmFromEndDate,
+      ctmFromEndDateYYYY,
+      ctmFromEndDateMM,
+      ctmFromEndDateDD,
+      ctmUntilEndDate,
+      ctmUntilEndDateYYYY,
+      ctmUntilEndDateMM,
+      ctmUntilEndDateDD,
+      ctmFromEndTime,
+      ctmFromEndTimeHH,
+      ctmFromEndTimeMM,
+      ctmFromEndTimeSS,
+      ctmUntilEndTime,
+      ctmUntilEndTimeHH,
+      ctmUntilEndTimeMM,
+      ctmUntilEndTimeSS
+    }).then((data) => {
+      myFunction(data);
+    })
   };
 
   function myFunction(statistics) {
     console.log(statistics)
-
-    document.getElementById('statisticTable').innerHTML = "";
 
     let tableDivOne = document.createElement("div");
     tableDivOne.setAttribute("class", "container");
@@ -417,18 +480,18 @@
     tableDivTwo.appendChild(tableDivThree);
 
     if (statistics.length > 9999) {
-    let tableTrWarning = document.createElement("TR");
-    tableDivThree.appendChild(tableTrWarning);
+      let tableTrWarning = document.createElement("TR");
+      tableDivThree.appendChild(tableTrWarning);
 
-    let tableTdWarning = document.createElement("TD");
-    tableTdWarning.setAttribute("colspan", "8");
-    tableTrWarning.appendChild(tableTdWarning);
+      let tableTdWarning = document.createElement("TD");
+      tableTdWarning.setAttribute("colspan", "8");
+      tableTrWarning.appendChild(tableTdWarning);
 
-    let tableDivWarning = document.createElement("div");
-    tableDivWarning.setAttribute("class", "alert alert-warning fw-bold");
-    tableDivWarning.setAttribute("role", "alert");
-    tableDivWarning.innerHTML = "Jumlah data yang ditampilkan sebanyak 10.000 line."
-    tableTrWarning.appendChild(tableDivWarning);
+      let tableDivWarning = document.createElement("div");
+      tableDivWarning.setAttribute("class", "alert alert-warning fw-bold");
+      tableDivWarning.setAttribute("role", "alert");
+      tableDivWarning.innerHTML = "Jumlah data yang ditampilkan sebanyak 10.000 line."
+      tableTrWarning.appendChild(tableDivWarning);
     }
 
     let tableTitle = document.createElement("h3");
@@ -437,145 +500,145 @@
     tableDivThree.appendChild(tableTitle);
 
     if (statistics.length === 0) {
-    let tableContentHeader = document.createElement("table");
-    tableDivThree.appendChild(tableContentHeader);
+      let tableContentHeader = document.createElement("table");
+      tableDivThree.appendChild(tableContentHeader);
 
-    let contentHeaderRow = document.createElement("TR");
-    tableContentHeader.appendChild(contentHeaderRow);
+      let contentHeaderRow = document.createElement("TR");
+      tableContentHeader.appendChild(contentHeaderRow);
 
-    let contentHeaderData = document.createElement("TD");
-    contentHeaderData.setAttribute("colspan", "8");
-    contentHeaderRow.appendChild(contentHeaderData);
+      let contentHeaderData = document.createElement("TD");
+      contentHeaderData.setAttribute("colspan", "8");
+      contentHeaderRow.appendChild(contentHeaderData);
 
-    let contentHeaderDiv = document.createElement("div");
-    contentHeaderDiv.setAttribute("class", "alert alert-danger fw-bold");
-    contentHeaderDiv.setAttribute("role", "alert");
-    contentHeaderDiv.innerHTML = "No Data Found"
-    contentHeaderRow.appendChild(contentHeaderDiv);
+      let contentHeaderDiv = document.createElement("div");
+      contentHeaderDiv.setAttribute("class", "alert alert-danger fw-bold");
+      contentHeaderDiv.setAttribute("role", "alert");
+      contentHeaderDiv.innerHTML = "No Data Found"
+      contentHeaderRow.appendChild(contentHeaderDiv);
     } else {
-    let tableContentHeader = document.createElement("table");
-    tableContentHeader.setAttribute("id", "dtHorizontalVerticalExample");
-    tableContentHeader.setAttribute("class", "table table-striped table-bordered");
-    tableContentHeader.setAttribute("width", "100%");
-    tableDivThree.appendChild(tableContentHeader);
+      let tableContentHeader = document.createElement("table");
+      tableContentHeader.setAttribute("id", "dtHorizontalVerticalExample");
+      tableContentHeader.setAttribute("class", "table table-striped table-bordered");
+      tableContentHeader.setAttribute("width", "100%");
+      tableDivThree.appendChild(tableContentHeader);
 
-    let contentHeaderHead = document.createElement("thead");
-    tableContentHeader.appendChild(contentHeaderHead);
+      let contentHeaderHead = document.createElement("thead");
+      tableContentHeader.appendChild(contentHeaderHead);
 
-    let contentHeaderRow = document.createElement("TR");
-    contentHeaderHead.appendChild(contentHeaderRow);
+      let contentHeaderRow = document.createElement("TR");
+      contentHeaderHead.appendChild(contentHeaderRow);
 
-    let contentHeaderTH1 = document.createElement("TH");
-    contentHeaderTH1.setAttribute("scope", "col");
-    contentHeaderTH1.innerHTML = "No"
-    contentHeaderRow.appendChild(contentHeaderTH1);
+      let contentHeaderTH1 = document.createElement("TH");
+      contentHeaderTH1.setAttribute("scope", "col");
+      contentHeaderTH1.innerHTML = "No"
+      contentHeaderRow.appendChild(contentHeaderTH1);
 
-    let contentHeaderTH2 = document.createElement("TH");
-    contentHeaderTH2.setAttribute("scope", "col");
-    contentHeaderTH2.innerHTML = "Job Name"
-    contentHeaderRow.appendChild(contentHeaderTH2);
+      let contentHeaderTH2 = document.createElement("TH");
+      contentHeaderTH2.setAttribute("scope", "col");
+      contentHeaderTH2.innerHTML = "Job Name"
+      contentHeaderRow.appendChild(contentHeaderTH2);
 
-    let contentHeaderTH3 = document.createElement("TH");
-    contentHeaderTH3.setAttribute("scope", "col");
-    contentHeaderTH3.innerHTML = "Server"
-    contentHeaderRow.appendChild(contentHeaderTH3);
-    
-    let contentHeaderTH4 = document.createElement("TH");
-    contentHeaderTH4.setAttribute("scope", "col");
-    contentHeaderTH4.innerHTML = "User ID"
-    contentHeaderRow.appendChild(contentHeaderTH4);
+      let contentHeaderTH3 = document.createElement("TH");
+      contentHeaderTH3.setAttribute("scope", "col");
+      contentHeaderTH3.innerHTML = "Server"
+      contentHeaderRow.appendChild(contentHeaderTH3);
 
-    let contentHeaderTH5 = document.createElement("TH");
-    contentHeaderTH5.setAttribute("scope", "col");
-    contentHeaderTH5.innerHTML = "Order Date"
-    contentHeaderRow.appendChild(contentHeaderTH5);
+      let contentHeaderTH4 = document.createElement("TH");
+      contentHeaderTH4.setAttribute("scope", "col");
+      contentHeaderTH4.innerHTML = "User ID"
+      contentHeaderRow.appendChild(contentHeaderTH4);
 
-    let contentHeaderTH6 = document.createElement("TH");
-    contentHeaderTH6.setAttribute("scope", "col");
-    contentHeaderTH6.innerHTML = "Start Date"
-    contentHeaderRow.appendChild(contentHeaderTH6);
+      let contentHeaderTH5 = document.createElement("TH");
+      contentHeaderTH5.setAttribute("scope", "col");
+      contentHeaderTH5.innerHTML = "Order Date"
+      contentHeaderRow.appendChild(contentHeaderTH5);
 
-    let contentHeaderTH7 = document.createElement("TH");
-    contentHeaderTH7.setAttribute("scope", "col");
-    contentHeaderTH7.innerHTML = "Start Time"
-    contentHeaderRow.appendChild(contentHeaderTH7);
+      let contentHeaderTH6 = document.createElement("TH");
+      contentHeaderTH6.setAttribute("scope", "col");
+      contentHeaderTH6.innerHTML = "Start Date"
+      contentHeaderRow.appendChild(contentHeaderTH6);
 
-    let contentHeaderTH8 = document.createElement("TH");
-    contentHeaderTH8.setAttribute("scope", "col");
-    contentHeaderTH8.innerHTML = "End Date"
-    contentHeaderRow.appendChild(contentHeaderTH8);
+      let contentHeaderTH7 = document.createElement("TH");
+      contentHeaderTH7.setAttribute("scope", "col");
+      contentHeaderTH7.innerHTML = "Start Time"
+      contentHeaderRow.appendChild(contentHeaderTH7);
 
-    let contentHeaderTH9 = document.createElement("TH");
-    contentHeaderTH9.setAttribute("scope", "col");
-    contentHeaderTH9.innerHTML = "End Time"
-    contentHeaderRow.appendChild(contentHeaderTH9);
+      let contentHeaderTH8 = document.createElement("TH");
+      contentHeaderTH8.setAttribute("scope", "col");
+      contentHeaderTH8.innerHTML = "End Date"
+      contentHeaderRow.appendChild(contentHeaderTH8);
 
-    let contentHeaderTH10 = document.createElement("TH");
-    contentHeaderTH10.setAttribute("scope", "col");
-    contentHeaderTH10.innerHTML = "Duration"
-    contentHeaderRow.appendChild(contentHeaderTH10);
+      let contentHeaderTH9 = document.createElement("TH");
+      contentHeaderTH9.setAttribute("scope", "col");
+      contentHeaderTH9.innerHTML = "End Time"
+      contentHeaderRow.appendChild(contentHeaderTH9);
 
-    let contentHeaderTH11 = document.createElement("TH");
-    contentHeaderTH11.setAttribute("scope", "col");
-    contentHeaderTH11.innerHTML = "Ended Status"
-    contentHeaderRow.appendChild(contentHeaderTH11);
+      let contentHeaderTH10 = document.createElement("TH");
+      contentHeaderTH10.setAttribute("scope", "col");
+      contentHeaderTH10.innerHTML = "Duration"
+      contentHeaderRow.appendChild(contentHeaderTH10);
 
-    let contentBody = document.createElement("tbody");
-    tableContentHeader.appendChild(contentBody);
+      let contentHeaderTH11 = document.createElement("TH");
+      contentHeaderTH11.setAttribute("scope", "col");
+      contentHeaderTH11.innerHTML = "Ended Status"
+      contentHeaderRow.appendChild(contentHeaderTH11);
 
-    statistics.forEach((statistic, i) => {
-    i++;
-    let contentBodyRow = document.createElement("TR");
-    contentBody.appendChild(contentBodyRow);
+      let contentBody = document.createElement("tbody");
+      tableContentHeader.appendChild(contentBody);
 
-    let contentBodyTH = document.createElement("TH");
-    contentBodyTH.setAttribute("scope", "col");
-    contentBodyTH.innerHTML = `${i}`
-    contentBodyRow.appendChild(contentBodyTH);
+      statistics.forEach((statistic, i) => {
+        i++;
+        let contentBodyRow = document.createElement("TR");
+        contentBody.appendChild(contentBodyRow);
 
-    let contentBodyTD1 = document.createElement("TD");
-    contentBodyTD1.innerHTML = `${statistic.JOB_MEM_NAME}`
-    contentBodyRow.appendChild(contentBodyTD1);
+        let contentBodyTH = document.createElement("TH");
+        contentBodyTH.setAttribute("scope", "col");
+        contentBodyTH.innerHTML = `${i}`
+        contentBodyRow.appendChild(contentBodyTH);
 
-    let contentBodyTD2 = document.createElement("TD");
-    contentBodyTD2.innerHTML = `${statistic.NODE_ID}`
-    contentBodyRow.appendChild(contentBodyTD2);
+        let contentBodyTD1 = document.createElement("TD");
+        contentBodyTD1.innerHTML = `${statistic.JOB_MEM_NAME}`
+        contentBodyRow.appendChild(contentBodyTD1);
 
-    let contentBodyTD3 = document.createElement("TD");
-    contentBodyTD3.innerHTML = `${statistic.OWNER}`
-    contentBodyRow.appendChild(contentBodyTD3);
-    
-    let contentBodyTD4 = document.createElement("TD");
-    contentBodyTD4.innerHTML = `${statistic.ORDER_DATE}`
-    contentBodyRow.appendChild(contentBodyTD4);
+        let contentBodyTD2 = document.createElement("TD");
+        contentBodyTD2.innerHTML = `${statistic.NODE_ID}`
+        contentBodyRow.appendChild(contentBodyTD2);
 
-    let contentBodyTD5 = document.createElement("TD");
-    contentBodyTD5.innerHTML = `${statistic.START_DATE}`
-    contentBodyRow.appendChild(contentBodyTD5);
+        let contentBodyTD3 = document.createElement("TD");
+        contentBodyTD3.innerHTML = `${statistic.OWNER}`
+        contentBodyRow.appendChild(contentBodyTD3);
 
-    let contentBodyTD6 = document.createElement("TD");
-    contentBodyTD6.innerHTML = `${statistic.START_TIME}`
-    contentBodyRow.appendChild(contentBodyTD6);
+        let contentBodyTD4 = document.createElement("TD");
+        contentBodyTD4.innerHTML = `${statistic.ORDER_DATE}`
+        contentBodyRow.appendChild(contentBodyTD4);
 
-    let contentBodyTD7 = document.createElement("TD");
-    contentBodyTD7.innerHTML = `${statistic.END_DATE}`
-    contentBodyRow.appendChild(contentBodyTD7);
+        let contentBodyTD5 = document.createElement("TD");
+        contentBodyTD5.innerHTML = `${statistic.START_DATE}`
+        contentBodyRow.appendChild(contentBodyTD5);
 
-    let contentBodyTD8 = document.createElement("TD");
-    contentBodyTD8.innerHTML = `${statistic.END_TIME}`
-    contentBodyRow.appendChild(contentBodyTD8);
+        let contentBodyTD6 = document.createElement("TD");
+        contentBodyTD6.innerHTML = `${statistic.START_TIME}`
+        contentBodyRow.appendChild(contentBodyTD6);
 
-    let contentBodyTD9 = document.createElement("TD");
-    contentBodyTD9.innerHTML = `${statistic.DURATION}`
-    contentBodyRow.appendChild(contentBodyTD9);
+        let contentBodyTD7 = document.createElement("TD");
+        contentBodyTD7.innerHTML = `${statistic.END_DATE}`
+        contentBodyRow.appendChild(contentBodyTD7);
 
-    let contentBodyTD10 = document.createElement("TD");
-    contentBodyTD10.innerHTML = `${statistic.ENDED_STATUS}`
-    contentBodyRow.appendChild(contentBodyTD10);
-    })
+        let contentBodyTD8 = document.createElement("TD");
+        contentBodyTD8.innerHTML = `${statistic.END_TIME}`
+        contentBodyRow.appendChild(contentBodyTD8);
+
+        let contentBodyTD9 = document.createElement("TD");
+        contentBodyTD9.innerHTML = `${statistic.DURATION}`
+        contentBodyRow.appendChild(contentBodyTD9);
+
+        let contentBodyTD10 = document.createElement("TD");
+        contentBodyTD10.innerHTML = `${statistic.ENDED_STATUS}`
+        contentBodyRow.appendChild(contentBodyTD10);
+      })
     }
 
-}
-  
+  }
 </script>
+
 </html>
