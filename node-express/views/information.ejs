@@ -1,0 +1,541 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+
+<main>
+  <section class="pt-5">
+    <div class="container">
+      <div class="row g-4 g-sm-5">
+        <!-- Main content START -->
+        <div class="col-xl-12 mb-4 mb-sm-0">
+          <!-- Personal info START -->
+          <div class="card card-body shadow p-4">
+            <!-- Title -->
+            <h3 class="text-center">Input Search Criteria </h3>
+
+            <%- include('layout/modal') %>
+
+            <!-- Form START -->
+            <form class="row g-3 mt-0" , method="post" , action="/information">
+              <!--Environment-->
+              <div class="form-group col-md-6">
+                <label for="ctmEnvironment">Environment <span class="text-danger">*</span></label>
+                <select class="form-select" id="ctmEnvironment" name="ctmEnvironment">
+                  <option>Development</option>
+                </select>
+              </div>
+              <!--Platform-->
+              <div class="form-group col-md-6">
+                <label for="ctmPlatform">Platform <span class="text-danger">*</span></label>
+                <select class="form-select" id="ctmPlatform" name="ctmPlatform">
+                  <!--<option selected>Choose...</option>-->
+				  <option>MAINFRAME</option>
+                  <option>OPEN SYSTEM</option>
+				  <option>INFORMATICA</option>
+				  <option>SAP</option>
+				  <option>NETBACKUP</option>
+				  <option>APPLICATION INTEGRATOR</option>
+                </select>
+              </div>
+              <!--Job Name-->
+              <div class="form-group col-md-1">
+                <label for="ctmLikeInJobName" style="color: white"> - </label>
+                <select class="form-select" id="ctmLikeInJobName" name="ctmLikeInJobName">
+                  <option selected value="$regex">LIKE</option>
+                  <option value="$eq">=</option>
+                  <!--<option>IN</option>-->
+                </select>
+              </div>
+              <div class="form-group col-md-5 ">
+                <label for="ctmJobName"> Job Name</label>
+                <input type="jobName" class="form-control" id="ctmJobName" placeholder="Job Name" name="ctmJobName">
+              </div>
+
+              <!--Group Name-->
+              <div class="form-group col-md-1">
+                <label for="ctmLikeInGroupName" style="color: white"> - </label>
+                <select class="form-select" id="ctmLikeInGroupName" name="ctmLikeInGroupName">
+                  <option selected value="$regex">LIKE</option>
+                  <option value="$eq">=</option>
+                  <!--<option>IN</option>-->
+                </select>
+              </div>
+              <div class="form-group col-md-5 ">
+                <label for="ctmGroupName">Group Name</label>
+                <input type="groupName" class="form-control" id="ctmGroupName" placeholder="Group Name" name="ctmGroupName">
+              </div>
+              <!--Application-->
+              <div class="form-group col-md-1">
+                <label for="ctmLikeInApplication" style="color: white"> - </label>
+                <select class="form-select" id="ctmLikeInApplication" name="ctmLikeInApplication">
+                  <option selected value="$regex">LIKE</option>
+                  <option value="$eq">=</option>
+                  <!--<option>IN</option>-->
+                </select>
+              </div>
+              <div class="form-group col-md-5 ">
+                <label for="ctmApplication">Application</label>
+                <input type="Application" class="form-control" id="ctmApplication" placeholder="Application" name="ctmApplication">
+              </div>
+              <!--Server-->
+              <div class="form-group col-md-1">
+                <label for="ctmLikeInServer" style="color: white"> - </label>
+                <select class="form-select" id="ctmLikeInServer" name="ctmLikeInServer">
+                  <option selected value="$regex">LIKE</option>
+                  <option value="$eq">=</option>
+                  <!--<option>IN</option>-->
+                </select>
+              </div>
+              <div class="form-group col-md-5 ">
+                <label for="ctmServer">Server</label>
+                <input type="server" class="form-control" id="ctmServer" placeholder="Server" name="ctmServer">
+              </div>
+              <!--User ID-->
+              <div class="form-group col-md-1">
+                <label for="ctmLikeInUserId" style="color: white"> - </label>
+                <select class="form-select" id="ctmLikeInUserId" name="ctmLikeInUserId">
+                  <option selected value="$regex">LIKE</option>
+                  <option value="$eq">=</option>
+                  <!--<option>IN</option>-->
+                </select>
+              </div>
+              <div class="form-group col-md-5 ">
+                <label for="ctmUserId">User ID</label>
+                <input type="userId" class="form-control" id="ctmUserId" placeholder="User ID" name="ctmUserId">
+              </div>
+              <!-- Button -->
+              <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary mb-0" id="ctmSubmit" href="./information">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="pt-5">
+    <section class="pt-5">
+      <div class="container">
+        <div class="row g-4 g-sm-5">
+          <!-- Main content START -->
+          <div class="col-xl-12 mb-4 mb-sm-4">
+            <!-- Personal info START -->
+            <div class="card card-body shadow p-4">
+
+              <%try{%>
+              <!--alert data yang ditampilkan 20000 -->
+              <% if (informations.length > 19999) { %>
+                <tr>
+                    <td colspan="8"></td>
+                    <div class="alert alert-warning fw-bold" role="alert">
+                        Jumlah data yang ditampilkan maksimal 20.000 line.
+                      </div>
+                </tr>                                                                
+            <% } %>  
+              <!-- Title -->
+              <h3 class="text-center">Summary</h3>
+
+              <div class="container">
+                <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
+                    <!--alert data tidak ada-->
+                    <% if (informations.length===0) { %>
+                      <table>
+                        <tr>
+                          <td colspan="8"></td>
+                          <div class="alert alert-danger fw-bold" role="alert">
+                            No Data Found
+                          </div>
+                        </tr>
+                      </table>
+                    
+                    <% } else {%>
+
+                    <!--perulangan sebanyak job-->
+					<% if(informations[0].DATA_CENTER==='MAINFRAME') {%>
+					<thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Member Library</th>
+                          <th scope="col">User ID</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.MEMNAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.MEM_LIB%>
+                      </td>
+                      <td>
+                        <%= information.OWNER%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td><a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>
+                                                                                </td> -->
+                    </tr>
+                    <% }) %>
+					<%}else if(informations[0].DATA_CENTER==='OPEN SYSTEM' & informations[0].APPL_FORM === "Informatica") {%>
+						<thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Connection Profile</th>
+                          <th scope="col">Repository Folder</th>
+                          <th scope="col">Workflow</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+					  <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.JOB_NAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.INF_ACCOUNT%>
+                      </td>
+                      <td>
+                        <%= information.INF_REP_FOLDER%>
+                      </td>
+                      <td>
+                        <%= information.INF_WORKFLOW%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td> <a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>d</td> -->
+                    </tr>
+                    <% }) %>
+					<%}else if(informations[0].DATA_CENTER==='OPEN SYSTEM' & informations[0].APPL_FORM === "SAP R3") {%>
+					<thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Connection Profile</th>
+                          <th scope="col">SAP Job Name</th>
+                          <th scope="col">Exec Target (Group)</th>
+						  <th scope="col">ABAP Program</th>
+						  <th scope="col">Varian Name</th>
+						  <th scope="col">User</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+					  <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.JOB_NAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.SAPR3_ACCOUNT%>
+                      </td>
+                      <td>
+                        <%= information.SAPR3_JOBNAME%>
+                      </td>
+                      <td>
+                        <%= information.SAPR3_TARGET_SERVER%>
+                      </td>
+					  <td>
+                        <%= information.SAPR3_STEP_S01_PROGRAM%>
+                      </td>
+					  <td>
+                        <%= information.SAPR3_STEP_S01_VAR_NAME%>
+                      </td>
+					  <td>
+                        <%= information.SAPR3_STEP_S01_OWNER%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td> <a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>d</td> -->
+                    </tr>
+                    <% }) %>
+					<%}else if(informations[0].DATA_CENTER==='OPEN SYSTEM' & informations[0].APPL_FORM === "NetBackup") {%>
+					<thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Connection Profile</th>
+                          <th scope="col">Policy Name</th>
+                          <th scope="col">Schedule Backup</th>
+						  <th scope="col">Client</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+					  <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.JOB_NAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.BKP_ACCOUNT%>
+                      </td>
+                      <td>
+                        <%= information.BKP_NBU_POLICY_NAME%>
+                      </td>
+                      <td>
+                        <%= information.BKP_NBU_SCHEDULE%>
+                      </td>
+					  <td>
+                        <%= information.BKP_NBU_CLIENT%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td> <a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>d</td> -->
+                    </tr>
+                    <% }) %>
+					<%}else if(informations[0].DATA_CENTER==='OPEN SYSTEM' & (informations[0].APPL_FORM != "CONTROL-M BIM" & informations[0].APPL_FORM != "" & informations[0].APPL_FORM !='AFT' & informations[0].APPL_FORM!='BladeLogic' & informations[0].APPL_FORM!='File Watcher' & informations[0].APPL_FORM!='Informatica' & informations[0].APPL_FORM!='NetBackup' & informations[0].APPL_FORM != 'SAP R3')) {%>
+					<thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Url</th>
+                          <th scope="col">Path</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+					  <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.JOB_NAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.UCM_URL%>
+                      </td>
+                      <td>
+                        <%= information.UCM_PATH%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td> <a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>d</td> -->
+                    </tr>
+                    <% }) %>			  
+                    <%} else {%>
+                      <thead>
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Job Name</th>
+                          <th scope="col">Description</th>
+                          <th scope="col">Path</th>
+                          <th scope="col">File Name</th>
+                          <th scope="col">Server</th>
+                          <th scope="col">User ID</th>
+                          <th scope="col">Command</th>
+						  <th scope="col">Schedule</th>
+                          <th scope="col">From Time</th>
+                          <th scope="col">To Time</th>
+                          <th scope="col">Runtime</th>
+                          <th scope="col">End Of Job</th>
+                        </tr>
+                      </thead>
+					  <tbody>
+                    <% informations.forEach((information, i)=> { i++%>
+                    <tr>
+                      <th scope="row">
+                        <%= i++ %>
+                      </th>
+                      <td>
+                        <%= information.JOB_NAME%>
+                      </td>
+                      <td>
+                        <%= information.DESCRIPTION%>
+                      </td>
+                      <td>
+                        <%= information.MEM_LIB%>
+                      </td>
+                      <td>
+                        <%= information.MEMNAME%>
+                      </td>
+                      <td>
+                        <%= information.NODE_ID%>
+                      </td>
+                      <td>
+                        <%= information.OWNER%>
+                      </td>
+                      <td>
+                        <%= information.CMD_LINE%>
+                      </td>
+					  <td>
+                        <%= information.SCHEDULE%>
+                      </td>
+                      <td>
+                        <%= information.FROM_TIME%>
+                      </td>
+                      <td>
+                        <%= information.TO_TIME%>
+                      </td>
+                      <td>
+                        <%= information.RUNTIME%>
+                      </td>
+                      <td>
+                        <%= information.CONDITION%>
+                      </td>
+                      <!--<td> <a href="/information/<%= information.JOB_NAME%>/<%= information.JOB_ID%>/<%= information.TABLE_ID%>" class="btn btn-success badge rounded-pill"><i class="bibi-info-circle"></i> Schedule</a>d</td> -->
+                    </tr>
+                    <% }) %>			  
+                    <% } }%>
+                  <% }catch(err){%>
+                    <tr>
+                      <td colspan="8"></td>
+                      <div class="alert alert-danger fw-bold" role="alert">
+                        Syntax Error. Klik Menu Bantuan 
+                        <svg width="20" height="20" data-bs-toggle="modal" fill="currentColor" class="bi bi-question-octagon" viewBox="0 0 16 16">
+                          <path d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 
+                                            0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z" />
+                          <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 
+                                            1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                        </svg>
+                      </div>
+                    </tr>
+                    <% } %> 
+                </table>
+              </div>
+            </div>
+            <script type="text/javascript" src="/DataTables/datatables.js"></script>
+            <script>
+				if (<%- validationResult %>) {
+					//pass
+				} else {
+					alert("Syntax Error. Klik Menu Bantuan atau Baca Panduan Penggunaan Autoweb.");
+				}
+			
+              $(document).ready(function() {
+                $('#dtHorizontalVerticalExample').DataTable({
+                  dom: "<'row'<'col-sm-12 col-md-8'l><'col-sm-12 col-md-1'B><'col-sm-12 col-md-3'f>>" +
+                    "<'row'<'col-sm-12'tr>>" + "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                  "scrollX": true,
+                  "scrollY": true,
+				  "deferLoading": 57,
+                  buttons: [{extend : 'csv', text : 'Export'}],
+				  
+                });
+                $('.dataTables_length').addClass('bs-select');
+              });
+            </script>
+</main>
+<%- include('layout/footer') %>

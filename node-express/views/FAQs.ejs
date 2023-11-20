@@ -1,0 +1,135 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+
+<main>
+  <section class="pt-5">
+    <div class="container">
+      <div class="col-xl-12 mb-4 mb-sm-0">
+	  
+	  <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingSeven">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+              Apakah ada panduan terkait penggunaan Autoweb?
+            </button>
+          </h2>
+          <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> Panduan penggunaan Autoweb dapat diakses melalui link berikut: 
+              <a class="nav-link active" aria-current="page" target="_blank" href="https://bcaoffice365.sharepoint.com/:b:/r/sites/ITBCA/Shared%20Documents/General/Control-M/Dokumen/Panduan%20Penggunaan%20Autoweb.pdf?csf=1&web=1&e=eLHrbJ">Panduan Penggunaan Autoweb</a>
+            </div>
+          </div>
+        </div>
+	  
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Apakah ada panduan terkait pengelolaan proses job batch automation?
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"> Panduan Pengelolaan Proses Job Batch Automation dapat diakses melalui link berikut: 
+              <a class="nav-link active" aria-current="page" target="_blank" href="https://bcaoffice365.sharepoint.com/:b:/s/ITBCA/Ec3SZXapbidAm6JZQgMeM0UBsHUkQZ6XA8NbcrQQIljBNQ?e=q9VY1x">Panduan Pengelolaan Proses Job Batch Automation</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Bagaimana cara melakukan permintaan pendaftaran, penghapusan, dan perubahan job ?
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Permintaan pendaftaran, penghapusan, dan perubahan job dapat diajukan melalui myService dengan nama Service Request <code>Job Scheduling Production.</code> Untuk detail dapat dilihat pada Panduan Pengelolaan Proses Job Batch Automation
+              </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Bagaimana cara melakukan permintaan instalasi atau uninstalasi Agent Automation ?
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Instalasi atau uninstalasi Agent Automation dapat diajukan melalui myService dengan nama Service Request <code>Installation/Uninstallation Agent Automation.</code> Untuk detail dapat dilihat pada Panduan Pengelolaan Proses Job Batch Automation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            Apakah permintaan hold/free/perubahan jam temporary di odate berjalan harus mengajukan SR Scheduling Production ?
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Untuk permintaan hold/free/perubahan jam temporary di odate berjalan dapat diajukan ke Team System Operator melalui myService dengan nama Service Request Perubahan Kondisi Job.</div>
+        </div>
+      </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+          Apa yang dimaksud dengan Effective Odate pada Form CTM?
+        </button>
+      </h2>
+      <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Odate atau Order Date adalah tanggal dimana job diorder untuk proses di Workload Automation. Tanggal Odate berubah setiap jam 12:00 saat proses ganti hari di Workload Automation. 
+          Sedangkan Tanggal Sysdate berubah setiap jam 00:00. Untuk lebih jelas dapat melihat ilustrasi di bawah :
+          <img src="/Image/Calendar.JPG" class="rounded mx-auto d-block" alt="#"></div>
+      </div>
+    </div>
+	
+	<div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingFive">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse8" aria-expanded="false" aria-controls="flush-collapse8">
+          Bagaimana Kalender Control-M?
+        </button>
+      </h2>
+      <div id="flush-collapse8" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">ALLDAYS
+          <img src="/Image/ALLDAYS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">DAILYIDS
+          <img src="/Image/DAILYIDS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">MORNDIDS
+          <img src="/Image/MORNDIDS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">HOLIIDS
+          <img src="/Image/HOLIIDS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		 <div class="accordion-body">MORNHIDS
+          <img src="/Image/MORNHIDS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">TAMBAHAN
+          <img src="/Image/TAMBAHAN.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">WORKDAYS
+          <img src="/Image/WORKDAYS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">MORNWDAYS
+          <img src="/Image/MORNWDAY.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">HOLIDAYS
+          <img src="/Image/HOLIDAYS.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">MORNHOLY
+          <img src="/Image/MORNHOLY.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">CALIPL
+          <img src="/Image/CALIPL.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">CALNOIPL
+          <img src="/Image/CALNOIPL.JPG" class="rounded mx-auto d-block" alt="#"></div>
+		<div class="accordion-body">LASTHOLY
+          <img src="/Image/LASTHOLY.JPG" class="rounded mx-auto d-block" alt="#"></div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingSix">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+          Bagaimana cara pengisian Form CTM?
+        </button>
+      </h2>
+      <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">Pada Form CTM dapat melihat pada sheet Form CTM (Contoh Isi). Terdapat contoh dan cara pengisian Form CTM. Form CTM terbaru dapat diambil pada link berikut : 
+          <a class="nav-link active" aria-current="page" target="_blank" href="https://bcaoffice365.sharepoint.com/:x:/r/sites/ITBCA/Shared%20Documents/General/Control-M/Dokumen/Form%20Request%20Job%20Scheduling.xlsx?d=w94159c117e364a9585644e5e6de537ff&csf=1&web=1&e=7DY9VR">Form Control-M</a>
+      </div>
+    </div>
+
+    <script src="/javascript/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  </section>
+
+  <%- include('layout/footer') %>

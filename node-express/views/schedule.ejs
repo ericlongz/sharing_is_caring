@@ -1,0 +1,22 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= scheduleInformation[0].JOB_NAME %> </h5>
+          <p class="card-text"> </p>
+          <p class="card-text">Shedule : <%= scheduleInformation[0].DAYS_CAL %> </p>
+          <p class="card-text">From Time : <%= scheduleInformation[0].FROM_TIME %> </p>
+          <p class="card-text">To Time : <%= scheduleInformation[0].TO_TIME %> </p>
+          <p class="card-text">Cylic : <%= scheduleInformation[0].CYCLIC%> </p>
+          <p class="card-text">Interval : <%= scheduleInformation[0].INTERVAL%> </p>
+          <p class="card-text">Spesific Time: <%= scheduleInformation[0].SPECIFIC_TIMES%> </p>
+          <!--<p class="card-text">End of Job   : <%= scheduleInformation[0].END_OF_JOB %> </p>-->
+          <a href="#" onclick="history.back()" class="card-link">&laquo; Back To Information</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

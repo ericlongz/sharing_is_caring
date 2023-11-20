@@ -1,0 +1,32 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ldapjs/asn1": "file:ldapjs-asn1-2.0.0.tgz",
+    "@ldapjs/attribute": "file:ldapjs-attribute-1.0.0.tgz",
+    "@ldapjs/change": "file:ldapjs-change-1.0.0.tgz",
+    "@ldapjs/protocol": "file:ldapjs-protocol-1.2.1.tgz",
+    "abstract-logging": "file:abstract-logging-2.0.1.tgz",
+    "assert-plus": "file:assert-plus-1.0.0.tgz",
+    "body-parser": "file:body-parser-1.20.2.tgz",
+    "bootstrap-icons": "^1.9.1",
+    "ejs": "^3.1.8",
+    "express": "file:express-4.18.2.tgz",
+    "jquery": "^3.6.1",
+    "ldapjs": "^3.0.6",
+    "mongodb": "^4.8.0",
+    "mongoose": "^6.4.5",
+    "node-windows": "file:node-windows-1.0.0-beta.8.tgz",
+    "nodemon": "^3.0.1",
+    "process-warning": "file:process-warning-2.2.0.tgz",
+    "winston": "file:winston-3.8.2.tgz"
+  }
+}

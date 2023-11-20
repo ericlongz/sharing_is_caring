@@ -1,0 +1,230 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+<!-- CSS Files -->
+<link id="pagestyle" href="./assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+
+<body>
+  <section class="position-relative overflow-hidden pt-5 pt-lg-3">
+    <div class="container">
+        <div class="row">
+
+          <!-- Job Ended OK -->
+          <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                        Job Ended OK
+                      </p>
+                      <h5 class="font-weight-bolder"><%- endedStatusOk%> Jobs</h5>
+                      <p class="mb-0">
+                        <span id="ended-status-ok"></span>
+                        since last week
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
+                      <!-- <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Ended Not OK -->
+          <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                        Job Ended Not OK
+                      </p>
+                      <h5 class="font-weight-bolder"><%-endedStatusNotOk%> Jobs</h5>
+                      <p class="mb-0">
+                        <span id="ended-status-not-ok"></span>
+                        since last week
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
+                      <!-- <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Not Run -->
+          <div class="col-xl-4 col-sm-6 mb-xl-0 mb-4">
+            <div class="card">
+              <div class="card-body p-3">
+                <div class="row">
+                  <div class="col-8">
+                    <div class="numbers">
+                      <p class="text-sm mb-0 text-uppercase font-weight-bold">
+                        Waiting Condition
+                      </p>
+                      <h5 class="font-weight-bolder"><%- endedStatusNotRun %> Jobs</h5>
+                      <p class="mb-0">
+                        <span id="ended-status-not-run"></span>
+                        since last week
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-4 text-end">
+                    <div class="icon icon-shape bg-gradient-secondary shadow-secondary text-center rounded-circle">
+                      <!-- <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Terorder Harian Mainframe -->
+        <div class="row my-4">
+          <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+            <div class="card shadow-xs border h-100">
+              <div class="card-header pb-0">
+                <h6 class="font-weight-semibold text-lg mb-0">Job Terorder Development</h6>
+                <p class="text-sm">Total : <%- totalOrderHarianDev %> Jobs, Last Update : <%- last_Sync %></p>
+              </div>
+              <div class="card-body py-3">
+                <div class="chart mb-2">
+                  <canvas id="chart-bars-mainframe" class="chart-canvas" height="240"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Job Terorder Harian Open System -->
+          <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+            <div class="card shadow-xs border h-100">
+              <div class="card-header pb-0">
+                <h6 class="font-weight-semibold text-lg mb-0">Job Terorder Production</h6>
+                <p class="text-sm">Total : <%- totalOrderHarianProd %> Jobs, Last Update : <%- last_Sync %></p>
+              </div>
+              <div class="card-body py-3">
+                <div class="chart mb-2">
+                  <canvas id="chart-bars-opensystem" class="chart-canvas" height="240"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Terdaftar Harian Mainframe -->
+        <div class="row my-4">
+          <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+            <div class="card shadow-xs border h-100">
+              <div class="card-header pb-0">
+                <h6 class="font-weight-semibold text-lg mb-0">Job Terdaftar Mainframe</h6>
+                <p class="text-sm">Total : <%- totaldaftarHarianMf %> Jobs, Last Update : <%- last_Sync_terdaftar %></p>
+              </div>
+              <div class="card-body py-3">
+                <div class="chart mb-2">
+                  <canvas id="chart-bars-daftar-mainframe" class="chart-canvas" height="240"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- Job Terdaftar Harian Open System -->
+        <div class="col-lg-6 col-md-6 mb-md-0 mb-4">
+          <div class="card shadow-xs border h-100">
+            <div class="card-header pb-0">
+              <h6 class="font-weight-semibold text-lg mb-0">Job Terdaftar Open System</h6>
+              <p class="text-sm">Total : <%- totaldaftarHarianOs %> Jobs, Last Update : <%- last_Sync_terdaftar %></p>
+            </div>
+            <div class="card-body py-3">
+              <div class="chart mb-2">
+                <canvas id="chart-bars-daftar-opensystem" class="chart-canvas" height="240"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+
+<!-- Font Awesome Icons -->
+<script src="./assets/css/kit.fontawesome.com_42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="./assets/js/plugins/chartjs.min.js"></script>
+
+<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+
+<script type="application/javascript">
+  var orderHarianDev = <%- orderHarianDev %>;
+  var orderHarianProd = <%- orderHarianProd %>;
+  var daftarHarianMf = <%- daftarHarianMf %>;
+  var daftarHarianOs = <%- daftarHarianOs %>;
+  var daftarAplikasiMf = <%- daftarAplikasiMf %>;
+  var daftarAplikasiOs = <%- daftarAplikasiOs %>;
+  var endedStatusOk = <%- endedStatusOk %>;
+  var endedStatusOkWeek = <%- endedStatusOkWeek %>;
+  var endedStatusNotOk = <%- endedStatusNotOk %>;
+  var endedStatusNotOkWeek = <%- endedStatusNotOkWeek %>;
+  var endedStatusNotRun = <%- endedStatusNotRun %>;
+  var endedStatusNotRunWeek = <%- endedStatusNotRunWeek %>;
+
+  if (endedStatusOk === endedStatusOkWeek) {
+    var ended_ok = document.getElementById("ended-status-ok")
+    ended_ok.className = "text-success text-sm font-weight-bolder";
+    ended_ok.innerHTML = Math.round(((endedStatusOk - endedStatusOkWeek) / endedStatusOkWeek) * 100) + "%"
+  } else if (endedStatusOk > endedStatusOkWeek) {
+    var ended_ok = document.getElementById("ended-status-ok")
+    ended_ok.className = "text-success text-sm font-weight-bolder";
+    ended_ok.innerHTML = "+" + Math.round(((endedStatusOk - endedStatusOkWeek) / endedStatusOkWeek) * 100) + "%"
+  } else if (endedStatusOk < endedStatusOkWeek) {
+    var ended_ok = document.getElementById("ended-status-ok")
+    ended_ok.className = "text-danger text-sm font-weight-bolder";
+    ended_ok.innerHTML = Math.round(((endedStatusOk - endedStatusOkWeek) / endedStatusOkWeek) * 100) + "%"
+  }
+
+  if (endedStatusNotOk === endedStatusNotOkWeek) {
+    var ended_not_ok = document.getElementById("ended-status-not-ok")
+    ended_not_ok.className = "text-danger text-sm font-weight-bolder";
+    ended_not_ok.innerHTML = Math.round(((endedStatusNotOk - endedStatusNotOkWeek) / endedStatusNotOkWeek) * 100) + "%"
+  } else if (endedStatusNotOk > endedStatusNotOkWeek) {
+    var ended_not_ok = document.getElementById("ended-status-not-ok")
+    ended_not_ok.className = "text-danger text-sm font-weight-bolder";
+    ended_not_ok.innerHTML = "+" + Math.round(((endedStatusNotOk - endedStatusNotOkWeek) / endedStatusNotOkWeek) * 100) + "%"
+  } else if (endedStatusNotOk < endedStatusNotOkWeek) {
+    var ended_not_ok = document.getElementById("ended-status-not-ok")
+    ended_not_ok.className = "text-success text-sm font-weight-bolder";
+    ended_not_ok.innerHTML = Math.round(((endedStatusNotOk - endedStatusNotOkWeek) / endedStatusNotOkWeek) * 100) + "%"
+  }
+
+  if (endedStatusNotRun === endedStatusNotRunWeek) {
+    var ended_not_run = document.getElementById("ended-status-not-run")
+    ended_not_run.className = "text-danger text-sm font-weight-bolder";
+    ended_not_run.innerHTML = Math.round(((endedStatusNotRun - endedStatusNotRunWeek) / endedStatusNotRunWeek) * 100) + "%"
+  } else if (endedStatusNotRun > endedStatusNotRunWeek) {
+    var ended_not_run = document.getElementById("ended-status-not-run")
+    ended_not_run.className = "text-danger text-sm font-weight-bolder";
+    ended_not_run.innerHTML = "+" + Math.round(((endedStatusNotRun - endedStatusNotRunWeek) / endedStatusNotRunWeek) * 100) + "%"
+  } else if (endedStatusNotRun < endedStatusNotRunWeek) {
+    var ended_not_run = document.getElementById("ended-status-not-run")
+    ended_not_run.className = "text-success text-sm font-weight-bolder";
+    ended_not_run.innerHTML = Math.round(((endedStatusNotRun - endedStatusNotRunWeek) / endedStatusNotRunWeek) * 100) + "%"
+  }
+</script>
+<script src="./javascript/chartOrderHarian.js"></script>
+<script src="./javascript/chartDaftarHarian.js"></script>
+
+<!-- <script src="./javascript/chartTerdaftarBulanan.js"></script> -->
+
+<script src="./bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

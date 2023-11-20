@@ -1,0 +1,317 @@
+<%- include('layout/header') %>
+<%- include('layout/nav') %>
+<main>
+  <section class="pt-5">
+    <div class="container">
+      <!-- Personal info START -->
+      <div class="card card-body shadow p-4">
+        <!-- Title -->
+        <h3 class="text-center">Input Search Criteria </h3>
+
+        <%- include('layout/modal') %>
+
+        <!-- Form START -->
+        <form class="row g-3 mt-0" method="post" action="/statistic">
+          <!--Environment-->
+          <div class="form-group col-md-3">
+            <label for="ctmEnvironment">Environment <span class="text-danger">*</span></label>
+            <select class="form-select" id="ctmEnvironment" name="ctmEnvironment">
+              <option>Development</option>
+            </select>
+          </div>
+          <!--Platform-->
+          <div class="form-group col-md-3">
+            <label for="ctmPlatform">Platform<span class="text-danger">*</span></label>
+            <select class="form-select" id="ctmPlatform" name="ctmPlatform">
+              <!--<option selected>Choose...</option>-->
+              <option value=".*">All</option>
+              <option>OPEN SYSTEM</option>
+              <option>MAINFRAME</option>
+            </select>
+          </div>
+          <!--Tahun Collection-->
+          <div class="form-group col-md-3">
+            <label for="ctmTahun">Tahun<span class="text-danger">*</span></label>
+            <select class="form-select" id="ctmTahun" name="ctmTahun">
+              <%- optionsTahun %>
+            </select>
+          </div>
+          <!--Bulan Collection-->
+          <div class="form-group col-md-3">
+            <label for="ctmBulan">Bulan<span class="text-danger">*</span></label>
+            <select class="form-select" id="ctmBulan" name="ctmBulan">
+              <option value='01'>Januari</option>
+              <option value='02'>Februari</option>
+              <option value='03'>Maret</option>
+              <option value='04'>April</option>
+              <option value='05'>Mei</option>
+              <option value='06'>Juni</option>
+              <option value='07'>Juli</option>
+              <option value='08'>Agustus</option>
+              <option value='09'>September</option>
+              <option value='10'>Oktober</option>
+              <option value='11'>November</option>
+              <option value='12'>Desember</option>
+            </select>
+          </div>
+          <!--Job Name-->
+          <div class="form-group col-md-1">
+            <label for="ctmLikeInJobName" style="color: white"> - </label>
+            <select class="form-select" id="ctmLikeInJobName" name="ctmLikeInJobName">
+              <option selected value="$regex">LIKE</option>
+              <option value="$eq">=</option>
+              <!--<option>IN</option> -->
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="ctmJobName"> Job Name</label>
+            <input type="jobName" class="form-control" id="ctmJobName" placeholder="Job Name" name="ctmJobName">
+          </div>
+
+          <!--Group Name-->
+          <div class="form-group col-md-1">
+            <label for="ctmLikeInGroupName" style="color: white;">-</label>
+            <select class="form-select" id="ctmLikeInGroupName" name="ctmLikeInGroupName">
+              <option selected value="$regex">LIKE</option>
+              <option value="$eq">=</option>
+              <!--<option>IN</option> -->
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="ctmGroupName">Group Name</label>
+            <input type="groupName" class="form-control" id="ctmGroupName" placeholder="Group Name" name="ctmGroupName">
+          </div>
+          <div class="form-group col-md-1">
+            <label for="ctmLikeInServer" style="color: white;">-</label>
+            <select class="form-select" id="ctmLikeInServer" name="ctmLikeInServer">
+              <option selected value="$regex">LIKE</option>
+              <option value="$eq">=</option>
+              <!--<option>IN</option> -->
+            </select>
+          </div>
+
+          <div class="form-group col-md-5">
+            <label for="ctmServer">Server</label>
+            <input type="server" class="form-control" id="ctmServer" placeholder="Server" name="ctmServer">
+          </div>
+          <div class="form-group col-md-1">
+            <label for="ctmLikeInUserId" style="color: white;">-</label>
+            <select class="form-select" id="ctmLikeInUserId" name="ctmLikeInUserId">
+              <option selected value="$regex">LIKE</option>
+              <option value="$eq">=</option>
+              <!--<option>IN</option> -->
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="ctmUserId">User ID</label>
+            <input type="userId" class="form-control" id="ctmUserId" placeholder="User ID" name="ctmUserId">
+          </div>
+          <div class="form-group col-md-1" style="color: white;">
+            <label for="ctmLikeInTableName">-</label>
+            <select class="form-select" id="ctmLikeInTableName" name="ctmLikeInTableName">
+              <option selected value="$regex">LIKE</option>
+              <option value="$eq">=</option>
+              <!--<option>IN</option> -->
+            </select>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="ctmTableName">Table Name</label>
+            <input type="tableName" class="form-control" id="ctmTableName" placeholder="Table Name" name="ctmTableName">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="ctmEndedStatus">Ended Status <span class="text-danger">*</span></label>
+            <select class="form-select" id="ctmEndedStatus" name="ctmEndedStatus">
+              <option selected value=".*">All</option>
+              <option>OK</option>
+              <option>NOT OK</option>
+            </select>
+          </div>
+          <!-- Range time-->
+          <div class="form-group col-md-1">
+            <label class="form-label">From</label>
+            <label for="ctmFromOdate"></label>
+            <select class="form-select" id="ctmFromOdate" name="ctmFromOdate">
+              <option value="$gt">></option>
+              <option selected value="$eq">=</option>
+              <!--<option><</option>-->
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Order Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromOdateDD" name="ctmFromOdateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromOdateMM" name="ctmFromOdateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromOdateYYYY" name="ctmFromOdateYYYY">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">Until</label>
+            <label for="ctmUntilOdate"></label>
+            <select class="form-select" id="ctmUntilOdate" name="ctmUntilOdate">
+              <!--<option >></option>
+                                <option selected>=</option>-->
+              <option value="$lt">
+                <</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label"> Order Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilOdateDD" name="ctmUntilOdateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilOdateMM" name="ctmUntilOdateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilOdateYYYY" name="ctmUntilOdateYYYY">
+            </div>
+          </div>
+
+          <div class="form-group col-md-1">
+            <label class="form-label">From</label>
+            <label for="ctmFromStartDate"></label>
+            <select class="form-select" id="ctmFromStartDate" name="ctmFromStartDate">
+              <option value="$gt">></option>
+              <option selected value="$eq">=</option>
+              <!--<option><</option>-->
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Start Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromStartDateDD" name="ctmFromStartDateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromStartDateMM" name="ctmFromStartDateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromStartDateYYYY" name="ctmFromStartDateYYYY">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">Until</label>
+            <label for="ctmUntilStartDate"></label>
+            <select class="form-select" id="ctmUntilStartDate" name="ctmUntilStartDate">
+              <!--<option >></option>
+                                    <option selected>=</option>-->
+              <option value="$lt">
+                <</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label"> Start Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilStartDateDD" name="ctmUntilStartDateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilStartDateMM" name="ctmUntilStartDateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilStartDateYYYY" name="ctmUntilStartDateYYYY">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">From</label>
+            <label for="ctmFromStartTime"></label>
+            <select class="form-select" id="ctmFromStartTime" name="ctmFromStartTime">
+              <option value="$gt">></option>
+              <option selected value="$eq">=</option>
+              <!--<option><</option>-->
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">Start Time </label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmFromStartTimeHH" name="ctmFromStartTimeHH">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromStartTimeMM" name="ctmFromStartTimeMM">
+              <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmFromStartTimeSS" name="ctmFromStartTimeSS">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">Until</label>
+            <label for="ctmUntilStartTime"></label>
+            <select class="form-select" id="ctmUntilStartTime" name="ctmUntilStartTime">
+              <!--<option >></option>
+                                    <option selected>=</option>-->
+              <option value="$lt">
+                <</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label"> Start Time</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmUntilStartTimeHH" name="ctmUntilStartTimeHH">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilStartTimeMM" name="ctmUntilStartTimeMM">
+              <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmUntilStartTimeSS" name="ctmUntilStartTimeSS">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">From</label>
+            <label for="ctmFromEndDate"></label>
+            <select class="form-select" id="ctmFromEndDate" name="ctmFromEndDate">
+              <option value="$gt">></option>
+              <option selected value="$eq">=</option>
+              <!--<option><</option>-->
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">End Date </label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmFromEndDateDD" name="ctmFromEndDateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromEndDateMM" name="ctmFromEndDateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmFromEndDateYYYY" name="ctmFromEndDateYYYY">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">Until</label>
+            <label for="ctmUntilEndDate"></label>
+            <select class="form-select" id="ctmUntilEndDate" name="ctmUntilEndDate">
+              <!--<option >></option>
+                                    <option selected>=</option>-->
+              <option value="$lt">
+                <</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label"> End Date</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="DD" id="ctmUntilEndDateDD" name="ctmUntilEndDateDD">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilEndDateMM" name="ctmUntilEndDateMM">
+              <input type="text" class="form-control" maxlength="4" placeholder="YYYY" id="ctmUntilEndDateYYYY" name="ctmUntilEndDateYYYY">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">From</label>
+            <label for="ctmFromEndTime"></label>
+            <select class="form-select" id="ctmFromEndTime" name="ctmFromEndTime">
+              <option value="$gt">></option>
+              <option selected value="$eq">=</option>
+              <!--<option><</option>-->
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label">End Time </label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmFromEndTimeHH" name="ctmFromEndTimeHH">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmFromEndTimeMM" name="ctmFromEndTimeMM">
+              <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmFromEndTimeSS" name="ctmFromEndTimeSS">
+            </div>
+          </div>
+          <div class="form-group col-md-1">
+            <label class="form-label">Until</label>
+            <label for="ctmUntilEndTime"></label>
+            <select class="form-select" id="ctmUntilEndTime" name="ctmUntilEndTime">
+              <!--<option >></option>
+                                    <option selected>=</option>-->
+              <option value="$lt">
+                <</option>
+            </select>
+          </div>
+          <div class="col-md-5">
+            <label class="form-label"> End Time</label>
+            <div class="input-group">
+              <input type="text" class="form-control" maxlength="2" placeholder="HH" id="ctmUntilEndTimeHH" name="ctmUntilEndTimeHH">
+              <input type="text" class="form-control" maxlength="2" placeholder="MM" id="ctmUntilEndTimeMM" name="ctmUntilEndTimeMM">
+              <input type="text" class="form-control" maxlength="2" placeholder="SS" id="ctmUntilEndTimeSS" name="ctmUntilEndTimeSS">
+            </div>
+          </div>
+          <!-- Button -->
+          <div class="col-md-12 text-center">
+            <button type="submit" class="btn btn-primary mb-0" id="ctmSubmit" href="./statistic">Submit</button>
+          </div>
+      </div>
+      </form>
+    </div>
+    </div>
+    <script type="text/javascript" src="/DataTables/datatables.js"></script>
+  </section>
+</main>
+<%- include('layout/footer')  %>

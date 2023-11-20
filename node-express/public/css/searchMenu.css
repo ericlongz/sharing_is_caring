@@ -1,0 +1,32 @@
+.searchResultMenu {
+    display: block;
+    position: relative;
+    opacity: 1;
+    box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+    margin: 10px;
+    padding: 8px;
+    list-style: none;
+    background-color: #ffffff;
+    font: 24px sans-serif;
+}
+
+.searchResultItems {
+    border-top: 1px solid black;
+    display: block;
+    position: relative;
+    min-width: 60px;
+    margin: 0;
+    padding: 6px 16px;
+    font: 16px sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    cursor: pointer;
+}
+
+.searchResultItems:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.scrollableSearch{
+    overflow:auto; 
+    height:200px;
+}
