@@ -19,8 +19,8 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 axios
   .post(
-    'https://10.43.5.146/api/authn/BCADEV/host%2fdev%2fdevelopment%2fserver%2fcontrol-m%2fcontrol_m01/authenticate',
-    'ytmt7635cf0zrxgkfh5m24mjp1qamh5j3z4th401pwg649364wdyk',
+    'https://conjur-follower2.intra.bca.co.id/api/authn/BCA/host%2Fprod%2Fapplication%2FCTM-01%2FCTM-01/authenticate',
+    '12b25e4f7tst4890wzgzcz6jm1947gr82dqmrft3ff881jyw3ekk',
     {
       headers: {
         'Accept-Encoding': 'base64',
@@ -33,7 +33,7 @@ axios
     console.log('Token token="' + response.data + '"');
     axios
       .get(
-        'https://10.43.5.146/secrets/BCADEV/variable/DEVVLTCPAS01/LOB_BCADEVConjur01/BCA_CTM/Operating%20System-BCA_Wintel_Domain_Expired-dti.co.id-ctmapi/password',
+        'https://conjur-follower2.intra.bca.co.id/api/secrets/BCA/variable/KP2CARKPAM01/LOB_Conjur01/BCA_WINDOWS/bcadomain-automationapi/password',
         {
           headers: {
             Authorization: 'Token token="' + token + '"',
