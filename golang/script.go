@@ -12,6 +12,8 @@ func main() {
 	var firstName string
 	fmt.Scanln(&firstName)
 	fmt.Println("Please enter your last name.")
-	var lastName string = fmt.Scanln(&lastName)
-	fmt.Printf("Hi, %s %s! I'm Go!", firstName, lastName)
+	var lastName string
+	fmt.Scanln(&lastName)
+	//fmt.Printf("Hi, %s %s! I'm Go!", firstName, lastName)
+	fmt.Println("Hi,", firstName, lastName)
 }
