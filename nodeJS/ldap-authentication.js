@@ -31,11 +31,11 @@ let authenticateUser = async (username, password) => {
 
     let getLoginDn = await authenticate({
       ldapOpts: { url: 'ldap://intra.bca.co.id' },
-      //userDn: 'CN=ERIC WU,OU=KantorPusat,DC=intra,DC=bca,DC=co,DC=id',
+      userDn: 'CN=ERIC WU,OU=KantorPusat,DC=intra,DC=bca,DC=co,DC=id',
       //userPassword: 'eric01bd',
       //userDn: 'CN=automationapi,OU=UserApp,DC=intra,DC=bca,DC=co,DC=id',
-      userDn: 'CN=Automation Api,OU=UserApp,DC=intra,DC=bca,DC=co,DC=id',
-      userPassword: getPasswd.data,
+      //userDn: 'CN=Automation Api,OU=UserApp,DC=intra,DC=bca,DC=co,DC=id',
+      userPassword: 'eric03ad',
       userSearchBase: 'DC=intra,DC=bca,DC=co,DC=id',
       usernameAttribute: 'samAccountName',
       username: username,
@@ -56,7 +56,7 @@ let authenticateUser = async (username, password) => {
   }
 };
 
-authenticateUser('automationapi', 'jcGYkD54BL6v').then(function (response) {
+authenticateUser('automationapi', 'df3b5vCjEsMZ').then(function (response) {
   console.log(response);
 });
 
